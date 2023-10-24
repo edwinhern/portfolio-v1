@@ -13,7 +13,7 @@ export async function fetchMediumArticles() {
     return articles;
   } catch (error) {
     console.error("Fetch error:", error);
-    throw error;
+    return null;
   }
 }
 
@@ -28,6 +28,6 @@ export async function fetchMediumArticleByTitle(slug: string) {
     return article;
   } catch (error) {
     console.error("Fetch error:", error);
-    throw error;
+    return null;
   }
 }
