@@ -1,0 +1,23 @@
+.blogContent {
+  @apply px-7 md:px-14 lg:px-28;
+}
+
+.blogContent h1 {
+  @apply mb-5 text-2xl font-bold md:text-5xl;
+}
+
+.blogContent h4 {
+  @apply mb-2.5 text-xl font-bold;
+}
+
+.blogContent p {
+  @apply mb-2.5 text-left text-base md:text-xl;
+}
+
+.blogContent figcaption {
+  @apply mt-2.5 text-center text-sm;
+}
+
+.blogContent img {
+  @apply rounded-lg;
+}
