@@ -14,7 +14,7 @@ export const aboutMeData = [
   {
     src: "/jobs/jpmorgan-chase.png",
     alt: "JPMorgan Chase & Co. Icon",
-    title: "JP Morgan Chase & Co.",
+    title: "JPMorgan Chase & Co.",
     description: "Click to see my internship journey at Chase",
   },
   {
