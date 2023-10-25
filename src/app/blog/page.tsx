@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { seoConfig } from "@/config";
 import { Metadata } from "next";
 
+export const revalidate = 3600;
 export const metadata: Metadata = {
   ...seoConfig,
   title: "Tech Blog Posts by Edwin H - Full Stack Developer",

@@ -6,12 +6,20 @@
   @apply mb-5 text-2xl font-bold md:text-5xl;
 }
 
+.blogContent h3 {
+  @apply mb-2.5 text-xl font-bold;
+}
+
 .blogContent h4 {
   @apply mb-2.5 text-xl font-bold;
 }
 
 .blogContent p {
   @apply mb-2.5 text-left text-base md:text-xl;
+}
+
+.blogContent li {
+  @apply mb-2.5 ml-8 text-left text-base md:text-xl list-disc;
 }
 
 .blogContent figcaption {
