@@ -7,16 +7,15 @@ export async function GET() {
     return new NextResponse("RSS URL not configured", { status: 500 });
 
   try {
-    const response = await fetch(rssUrl);
+    const response = await fetch(rssUrl, { next: { revalidate: 3600 } });
     if (!response.ok) {
       throw new Error("Medium RSS fetch failed");
     }
 
     const data = await response.json();
     const items: Article[] = data.items;
-    const topThree = items.slice(0, 3);
 
-    return NextResponse.json(topThree);
+    return NextResponse.json(items);
   } catch (error) {
     return new NextResponse("Unable to fetch Medium posts", { status: 500 });
   }

@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import { ArticleJsonLd } from 'next-seo';
 
 import { ChildProp } from "@/types/common";
 import { Article } from "@/types/api/medium-articles";
@@ -13,21 +12,11 @@ export const BlogLayout: React.FC<BlogContentProps> = ({
   children,
   metadata,
 }) => {
-  const { title, slug, pubDate, description, thumbnail } = metadata;
+  const { title, slug, pubDate } = metadata;
   const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
 
   return (
     <>
-      {/* <ArticleJsonLd
-        url={`${baseUrl}/blog/${slug}`}
-        title={title}
-        datePublished={pubDate}
-        dateModified={undefined}
-        authorName='Edwin Hernandez'
-        publisherName='Edwin Hernandez'
-        description={description}
-        images={[`${thumbnail}`]}
-      /> */}
       <article>
         <div className="mb-12 flex items-center justify-between px-4">
           <Link
