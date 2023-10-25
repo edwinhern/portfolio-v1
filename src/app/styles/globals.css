@@ -61,11 +61,3 @@
     @apply transform cursor-pointer select-none transition-transform duration-150 hover:bg-secondary focus:outline-none active:scale-95;
   }
 }
-
-*,
-*::before,
-*::after {
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease;
-}
