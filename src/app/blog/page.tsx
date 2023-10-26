@@ -1,10 +1,26 @@
 import { BlogList } from "@/components/Blog/BlogList";
-import { fetchMediumArticles } from "@/services";
+import { baseUrl } from "@/services";
 import { notFound } from "next/navigation";
 import { seoConfig } from "@/config";
 import { Metadata } from "next";
+import { Article } from "@/types/api/medium-articles";
 
-export const revalidate = 3600;
+async function fetchMediumArticles() {
+  try {
+    const response = await fetch(`${baseUrl}/api/medium`, {
+      next: { revalidate: 1800 },
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok " + response.statusText);
+    }
+
+    return (await response.json()) as Article[];
+  } catch (error) {
+    console.error("Fetch error:", error);
+    return null;
+  }
+}
+
 export const metadata: Metadata = {
   ...seoConfig,
   title: "Tech Blog Posts by Edwin H - Full Stack Developer",
