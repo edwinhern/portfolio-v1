@@ -1,8 +1,10 @@
+import { baseUrl } from "@/services";
 import { Metadata } from "next";
 
 export const seoConfig: Metadata = {
   title: "Edwin H - Full Stack Developer Portfolio",
   creator: "@edwinhern",
+  metadataBase: new URL(baseUrl as string),
   description:
     "Edwin H, a proficient full-stack developer, showcases his front-end and back-end development projects and professional experience in his portfolio.",
   openGraph: {
