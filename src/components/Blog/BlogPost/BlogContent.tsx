@@ -8,7 +8,7 @@ interface BlogContentProps {
   article: Article;
 }
 
-export const BlogContent = async ({ article }: BlogContentProps) => {
+export const BlogContent = ({ article }: BlogContentProps) => {
   const { title, description } = article;
 
   return (
