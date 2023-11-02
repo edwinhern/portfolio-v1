@@ -12,7 +12,11 @@ import PreviewPost from "@/components/Post/PreviewPost";
 // Prepare Next.js to know which routes already exist
 export async function generateStaticParams() {
   // Important, use the plain Sanity Client here
-  const posts = await client.fetch(postPathsQuery);
+  const posts = await client.fetch(postPathsQuery, {
+    next: {
+      revalidate: 3600,
+    },
+  });
 
   return posts;
 }
