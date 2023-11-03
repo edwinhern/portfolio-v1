@@ -8,7 +8,7 @@ import Image from "next/image";
 export const CarouselComponent: FC<ChildProp> = ({ children }) => {
   return (
     <div className="md:hidden">
-      <Carousel ssr responsive={responsive}>
+      <Carousel ssr responsive={responsive} swipeable={false}>
         {children}
       </Carousel>
     </div>
