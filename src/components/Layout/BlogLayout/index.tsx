@@ -9,6 +9,7 @@ interface BlogContentProps extends ChildProp {
   metadata: any;
 }
 
+// TODO: Move pubDate in the same line spacebetween the AuthorAvatar component
 export const BlogLayout: React.FC<BlogContentProps> = ({
   children,
   metadata,
