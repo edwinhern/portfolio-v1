@@ -15,7 +15,7 @@ export default function PreviewProvider(props: PreviewProviderProps) {
   const { children, token } = props;
   const { client } = suspend(
     () => import("../../sanity/lib/client"),
-    [UniqueKey]
+    [UniqueKey],
   );
 
   if (!token) return children;

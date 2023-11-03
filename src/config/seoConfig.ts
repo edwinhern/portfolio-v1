@@ -1,5 +1,5 @@
-import { baseUrl } from "@/services";
 import { Metadata } from "next";
+import baseUrl from "./baseUrl";
 
 export const seoConfig: Metadata = {
   title: "Edwin H - Full Stack Developer Portfolio",

@@ -1,25 +1,13 @@
-import { BlogList } from "@/components/Blog/BlogList";
-import { baseUrl } from "@/services";
-import { notFound } from "next/navigation";
-import { seoConfig } from "@/config";
+import { SanityDocument } from "next-sanity";
 import { Metadata } from "next";
-import { Article } from "@/types/api/medium-articles";
-
-async function fetchMediumArticles() {
-  try {
-    const response = await fetch(`${baseUrl}/api/medium`, {
-      next: { revalidate: 1800 },
-    });
-    if (!response.ok) {
-      throw new Error("Network response was not ok " + response.statusText);
-    }
-
-    return (await response.json()) as Article[];
-  } catch (error) {
-    console.error("Fetch error:", error);
-    return null;
-  }
-}
+import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
+import { seoConfig } from "@/config";
+import { postsQuery } from "@/sanity/lib/queries";
+import { sanityFetch, token } from "@/sanity/lib/sanityFetch";
+import PreviewProvider from "@/providers/PreviewProvider";
+import PreviewPosts from "@/components/features/blog/BlogList/";
+import BlogPostsParent from "@/components/features/blog/BlogList/BlogPostParent";
 
 export const metadata: Metadata = {
   ...seoConfig,
@@ -34,9 +22,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function BlogPage() {
-  const articles = await fetchMediumArticles();
-  if (!articles || articles.length === 0) return notFound();
+export default async function Home() {
+  const posts = await sanityFetch<SanityDocument[]>({ query: postsQuery });
+  const isDraftMode = draftMode().isEnabled;
 
-  return <BlogList articles={articles} />;
+  if (!posts) return notFound();
+
+  if (isDraftMode && token) {
+    return (
+      <PreviewProvider token={token}>
+        <PreviewPosts posts={posts} />
+      </PreviewProvider>
+    );
+  }
+
+  return <BlogPostsParent posts={posts} />;
 }

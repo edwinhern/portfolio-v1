@@ -2,8 +2,8 @@
 
 import type { SanityDocument } from "@sanity/client";
 import { useLiveQuery } from "@sanity/preview-kit";
-import Posts from "@/components/Posts";
 import { postsQuery } from "@/sanity/lib/queries";
+import BlogPostParent from "./BlogPostParent";
 
 export default function PreviewPosts({
   posts = [],
@@ -12,5 +12,5 @@ export default function PreviewPosts({
 }) {
   const [data] = useLiveQuery(posts, postsQuery);
 
-  return <Posts posts={data} />;
+  return <BlogPostParent posts={data} />;
 }

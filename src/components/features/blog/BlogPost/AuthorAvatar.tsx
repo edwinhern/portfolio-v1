@@ -1,5 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Author } from "@/types/sanity";
+import { Avatar, AvatarFallback, AvatarImage } from "../../../ui/avatar";
+import { Author } from "@/sanity/types";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/lib/client";
 
@@ -15,7 +15,7 @@ export default function AuthorAvatar(prop: Author) {
             src={builder.image(image).url()}
             alt={slug?.current ?? name}
           />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>EH</AvatarFallback>
         </Avatar>
       </div>
       <div className="text-xl font-bold">{name}</div>

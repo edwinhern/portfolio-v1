@@ -13,7 +13,11 @@ interface TwitterLinkProps {
   slug: string | undefined;
 }
 
-export const TwitterLink = ({ title, baseUrl, slug }: TwitterLinkProps) => {
+export const TwitterShareButton = ({
+  title,
+  baseUrl,
+  slug,
+}: TwitterLinkProps) => {
   const handleClick = () => {
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       title as string,

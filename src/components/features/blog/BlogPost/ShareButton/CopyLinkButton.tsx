@@ -9,7 +9,7 @@ import {
 import { buttonVariants } from "@/components/ui/button";
 
 type CopyLinkProps = { link: string };
-export const CopyLink: React.FC<CopyLinkProps> = ({ link }) => {
+export const CopyLinkButton: React.FC<CopyLinkProps> = ({ link }) => {
   const [hasCheckIcon, setHasCheckIcon] = useState(false);
 
   const onCopy = () => {

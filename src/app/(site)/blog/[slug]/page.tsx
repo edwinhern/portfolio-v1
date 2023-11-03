@@ -1,22 +1,29 @@
-import { BlogContent } from "@/components/Blog/BlogPost/BlogContent";
-import { fetchMediumArticleByTitle } from "@/services";
+import { SanityDocument } from "@sanity/client";
+import { client } from "@/sanity/lib/client";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
 import { seoConfig } from "@/config";
+import { postPathsQuery, postQuery } from "@/sanity/lib/queries";
+import { sanityFetch, token } from "@/sanity/lib/sanityFetch";
+import PreviewProvider from "@/providers/PreviewProvider";
+import PreviewPost from "@/components/features/blog/BlogPost/";
+import BlogPostParent from "@/components/features/blog/BlogPost/BlogPostParent";
 
-interface BlogPostPageProps {
-  params: { slug: string };
+export async function generateStaticParams() {
+  const posts = await client.fetch(postPathsQuery, {
+    next: {
+      revalidate: 3600,
+    },
+  });
+
+  return posts;
 }
 
-export async function generateMetadata({
-  params: { slug },
-}: BlogPostPageProps): Promise<Metadata> {
-  const article = await fetchMediumArticleByTitle(slug);
-  const blogTitle = article?.title ?? slug;
-  const blogTopic = article?.categories
-    ? article.categories.join(" ")
-    : "the topic";
-
+// TODO: Fix Generate Metadata server-side
+export async function generateMetadata(): Promise<Metadata> {
+  const blogTitle = "Blog Title";
+  const blogTopic = "Blog Topic";
   return {
     ...seoConfig,
     title: `Blog: ${blogTitle} - Edwin H - Portfolio`,
@@ -29,9 +36,19 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const article = await fetchMediumArticleByTitle(params.slug);
-  if (!article) return notFound();
+export default async function Page({ params }: { params: any }) {
+  const post = await sanityFetch<SanityDocument>({ query: postQuery, params });
+  const isDraftMode = draftMode().isEnabled;
 
-  return <BlogContent article={article} />;
+  if (!post) return notFound();
+
+  if (isDraftMode && token) {
+    return (
+      <PreviewProvider token={token}>
+        <PreviewPost post={post} />
+      </PreviewProvider>
+    );
+  }
+
+  return <BlogPostParent post={post} />;
 }
