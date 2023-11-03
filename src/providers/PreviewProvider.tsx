@@ -5,23 +5,21 @@ import { suspend } from "suspend-react";
 
 const LiveQueryProvider = dynamic(() => import("next-sanity/preview"));
 
-// suspend-react cache is global, so we use a unique key to avoid collisions
 const UniqueKey = Symbol("../../sanity/lib/client");
-
-export default function PreviewProvider({
-  children,
-  token,
-}: {
+interface PreviewProviderProps {
   children: React.ReactNode;
   token: string;
-}) {
+}
+
+export default function PreviewProvider(props: PreviewProviderProps) {
+  const { children, token } = props;
   const { client } = suspend(
     () => import("../../sanity/lib/client"),
-    [UniqueKey],
+    [UniqueKey]
   );
-  if (!token) {
-    throw new TypeError("Missing token");
-  }
+
+  if (!token) return children;
+
   return (
     <LiveQueryProvider
       client={client}
