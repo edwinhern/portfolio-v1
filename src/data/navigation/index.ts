@@ -9,7 +9,7 @@ export const menuData = {
     {
       title: "Projects",
       description: "A collection of my best works and projects.",
-      href: "/projects",
+      href: "/posts",
     },
     {
       title: "Blog",

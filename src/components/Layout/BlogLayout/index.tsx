@@ -1,11 +1,12 @@
 import Link from "next/link";
 
 import { ChildProp } from "@/types/common";
-import { Article } from "@/types/api/medium-articles";
-import { CopyLink } from "@/components/Blog/BlogPost/Buttons/CopyLink";
-import { TwitterLink } from "@/components/Blog/BlogPost/Buttons/TwitterLink";
+import { CopyLinkButton } from "@/components/features/blog/BlogPost/ShareButton/CopyLinkButton";
+import { TwitterShareButton } from "@/components/features/blog/BlogPost/ShareButton/TwitterShareButton";
+import { baseUrl } from "@/config";
+
 interface BlogContentProps extends ChildProp {
-  metadata: Article;
+  metadata: any;
 }
 
 export const BlogLayout: React.FC<BlogContentProps> = ({
@@ -13,7 +14,6 @@ export const BlogLayout: React.FC<BlogContentProps> = ({
   metadata,
 }) => {
   const { title, slug, pubDate } = metadata;
-  const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
 
   return (
     <>
@@ -26,8 +26,8 @@ export const BlogLayout: React.FC<BlogContentProps> = ({
             ← back to all posts
           </Link>
           <div className="flex gap-2">
-            <CopyLink link={`${baseUrl}/blog/${slug}`} />
-            <TwitterLink title={title} baseUrl={baseUrl} slug={slug} />
+            <CopyLinkButton link={`${baseUrl}/blog/${slug}`} />
+            <TwitterShareButton title={title} baseUrl={baseUrl} slug={slug} />
           </div>
         </div>
         <div className="animate-slideFromDownAndFade">{children}</div>
