@@ -13,7 +13,7 @@ import BlogPostParent from "@/components/features/blog/BlogPost/BlogPostParent";
 export async function generateStaticParams() {
   const posts = await client.fetch(postPathsQuery, {
     next: {
-      revalidate: 3600,
+      revalidate: 300,
     },
   });
 
