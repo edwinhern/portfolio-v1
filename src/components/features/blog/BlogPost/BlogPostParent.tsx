@@ -9,11 +9,9 @@ import { useParams } from "next/navigation";
 export default function BlogPostParent({ post }: { post: SanityDocument }) {
   const params = useParams();
   const isClient = useIsMounted();
-
   const metaData = {
     slug: params.slug,
     title: post.title,
-    pubDate: new Date(),
   };
 
   return (

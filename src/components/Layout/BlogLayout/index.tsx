@@ -14,7 +14,7 @@ export const BlogLayout: React.FC<BlogContentProps> = ({
   children,
   metadata,
 }) => {
-  const { title, slug, pubDate } = metadata;
+  const { title, slug } = metadata;
 
   return (
     <>
@@ -32,16 +32,6 @@ export const BlogLayout: React.FC<BlogContentProps> = ({
           </div>
         </div>
         <div className="animate-slideFromDownAndFade">{children}</div>
-        <div className="mt-8 flex flex-col text-right text-sm text-gray-600 dark:text-gray-400">
-          <span className="mb-1">
-            Published:{" "}
-            {new Date(pubDate).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "short",
-              day: "2-digit",
-            }) ?? null}
-          </span>
-        </div>
 
         <hr className="mx-auto my-8 w-28" />
 

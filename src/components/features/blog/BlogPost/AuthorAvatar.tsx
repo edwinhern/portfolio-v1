@@ -5,8 +5,13 @@ import { client } from "@/sanity/lib/client";
 
 const builder = imageUrlBuilder(client);
 
-export default function AuthorAvatar(prop: Author) {
-  const { name, image, slug } = prop;
+type AuthorAvatarProps = Author & {
+  datePublished: string;
+  readTime: string;
+};
+
+export default function AuthorAvatar(prop: AuthorAvatarProps) {
+  const { name, image, slug, datePublished, readTime } = prop;
   return (
     <div className="flex items-center">
       <div className="mr-4">
@@ -18,7 +23,12 @@ export default function AuthorAvatar(prop: Author) {
           <AvatarFallback>EH</AvatarFallback>
         </Avatar>
       </div>
-      <div className="text-xl font-bold">{name}</div>
+      <div className="flex flex-col pt-1">
+        <div className="text-lg tracking-wide font-normal">{name}</div>
+        <span className="text-sm">
+          {readTime} · {datePublished}
+        </span>
+      </div>
     </div>
   );
 }
