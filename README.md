@@ -1,4 +1,5 @@
 [![Check](https://github.com/edwinhern/portfolio/actions/workflows/check.yml/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/check.yml)
+[![CodeQL](https://github.com/edwinhern/portfolio/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/github-code-scanning/codeql)
 [![Next.js Bundle Analysis](https://github.com/edwinhern/portfolio/actions/workflows/nextjs_bundle_analysis.yml/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/nextjs_bundle_analysis.yml)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
