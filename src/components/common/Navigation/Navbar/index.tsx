@@ -1,7 +1,8 @@
-import { Menu } from "../NavigationMenu";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
-import dynamic from "next/dynamic";
+
+import { Menu } from "../NavigationMenu";
 
 const ThemeToggleButton = dynamic(
   () => import("@/components/common/ThemeToggleButton"),

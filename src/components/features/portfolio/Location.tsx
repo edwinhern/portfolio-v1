@@ -1,7 +1,8 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
-export const LocationSection = () => {
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+const LocationSection = () => {
   return (
     <Card className="cardAnimation col-span-full md:col-span-2">
       <div className="p-4">
@@ -23,3 +24,5 @@ export const LocationSection = () => {
     </Card>
   );
 };
+
+export default LocationSection;

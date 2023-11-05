@@ -1,11 +1,12 @@
 import { TwitterLogoIcon } from "@radix-ui/react-icons";
+
+import { buttonVariants } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { buttonVariants } from "@/components/ui/button";
 
 interface TwitterLinkProps {
   title: string | undefined;

@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+
 import styles from "./styles/BlogList.module.css";
 
 interface BlogTagFilterProps {
@@ -7,7 +8,7 @@ interface BlogTagFilterProps {
   onTagToggle: (tag: string) => void;
 }
 
-export const BlogTagFilter: React.FC<BlogTagFilterProps> = ({
+const BlogTagFilter: React.FC<BlogTagFilterProps> = ({
   tags,
   selectedTags,
   onTagToggle,
@@ -32,3 +33,5 @@ export const BlogTagFilter: React.FC<BlogTagFilterProps> = ({
     </div>
   );
 };
+
+export default BlogTagFilter;

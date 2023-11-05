@@ -1,0 +1,49 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ChildProp } from "@/types/common";
+
+interface DialogWrapperProps extends ChildProp {
+  dialogTitle: string;
+  dialogDescription: string;
+}
+
+const DialogWrapper: React.FC<DialogWrapperProps> = ({
+  children,
+  dialogTitle,
+  dialogDescription,
+}) => {
+  return (
+    <>
+      <Dialog>
+        <DialogTrigger asChild>{children}</DialogTrigger>
+        <DialogContent>
+          <Card>
+            <CardHeader className="px-4">
+              <CardTitle className="text-sm font-medium">
+                {dialogTitle}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="px-4">
+              <div className="text-sm text-muted-foreground">
+                {dialogDescription}
+              </div>
+            </CardContent>
+          </Card>
+          <DialogHeader>
+            <DialogTitle>{dialogTitle}</DialogTitle>
+            <DialogDescription>{dialogDescription}</DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
+
+export default DialogWrapper;

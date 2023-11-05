@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+
 import baseUrl from "./baseUrl";
 
 export const seoConfig: Metadata = {

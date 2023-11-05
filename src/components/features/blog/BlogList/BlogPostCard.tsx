@@ -1,11 +1,18 @@
 import Link from "next/link";
 
-export const BlogPostCard = ({ post, index }: { post: any; index: number }) => {
+import { BlogPost } from "@/sanity/types";
+
+interface BlogPostCardProps {
+  post: BlogPost;
+  index: number;
+}
+
+const BlogPostCard = ({ post, index }: BlogPostCardProps) => {
   const delay = 80 * index;
   const { title, slug, publishedAt } = post;
   return (
     <li key={title} className="mb-6">
-      <Link href={`/blog/${slug.current}`}>
+      <Link href={`/blog/${slug}`}>
         <div
           className="flex items-center justify-between transition hover:opacity-70"
           style={{ animationDelay: `${delay}ms` }}
@@ -25,3 +32,5 @@ export const BlogPostCard = ({ post, index }: { post: any; index: number }) => {
     </li>
   );
 };
+
+export default BlogPostCard;

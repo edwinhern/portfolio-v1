@@ -1,14 +1,15 @@
-import React from "react";
 import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-  NavigationMenuLink,
   Link,
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
 } from "@radix-ui/react-navigation-menu";
 import { AlignJustify } from "lucide-react";
+import React from "react";
+
 import { menuData } from "@/data";
 import { cn } from "@/lib/utils";
 

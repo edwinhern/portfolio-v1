@@ -1,4 +1,6 @@
-export const calculateReadingTime = (data: any[]): string => {
+import { PortableTextBlock } from "@portabletext/types";
+
+export const calculateReadingTime = (data: PortableTextBlock[]): string => {
   const wordsPerMinute = 200;
 
   const countWords = (text: string) => {

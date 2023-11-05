@@ -1,26 +1,24 @@
-import { SanityDocument } from "@sanity/client";
-import { client } from "@/sanity/lib/client";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { draftMode } from "next/headers";
+import { notFound } from "next/navigation";
+import LiveQuery from "next-sanity/preview/live-query";
+
+import BlogPostDetail from "@/components/features/blog/BlogPost/";
+import BlogPostLivePreview from "@/components/features/blog/BlogPost/BlogPostLivePreview";
 import { seoConfig } from "@/config";
-import { postPathsQuery, postQuery } from "@/sanity/lib/queries";
-import { sanityFetch, token } from "@/sanity/lib/sanityFetch";
-import PreviewProvider from "@/providers/PreviewProvider";
-import PreviewPost from "@/components/features/blog/BlogPost/";
-import BlogPostParent from "@/components/features/blog/BlogPost/BlogPostParent";
+import { queryForSingleBlogPostBySlug } from "@/sanity/lib/queries";
+import {
+  fetchBlogPostBySlug,
+  fetchBlogPostSlugs,
+} from "@/sanity/lib/sanityFetch";
 
-export async function generateStaticParams() {
-  const posts = await client.fetch(postPathsQuery, {
-    next: {
-      revalidate: 300,
-    },
-  });
+export const runtime = "edge";
 
-  return posts;
-}
+type BlogPostPageProps = {
+  params: { slug: string };
+};
 
-// TODO: Fix Generate Metadata server-side
+// TODO: Implement dynamic metadata generation based on post data
 export async function generateMetadata(): Promise<Metadata> {
   const blogTitle = "Blog Title";
   const blogTopic = "Blog Topic";
@@ -36,19 +34,27 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params }: { params: any }) {
-  const post = await sanityFetch<SanityDocument>({ query: postQuery, params });
-  const isDraftMode = draftMode().isEnabled;
+export async function generateStaticParams() {
+  const slugs = await fetchBlogPostSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
 
-  if (!post) return notFound();
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const post = await fetchBlogPostBySlug(params.slug);
 
-  if (isDraftMode && token) {
-    return (
-      <PreviewProvider token={token}>
-        <PreviewPost post={post} />
-      </PreviewProvider>
-    );
+  if (!post && !draftMode().isEnabled) {
+    return notFound();
   }
 
-  return <BlogPostParent post={post} />;
+  return (
+    <LiveQuery
+      enabled={draftMode().isEnabled}
+      query={queryForSingleBlogPostBySlug}
+      params={params}
+      initialData={post}
+      as={BlogPostLivePreview}
+    >
+      {post && <BlogPostDetail post={post} />}
+    </LiveQuery>
+  );
 }
