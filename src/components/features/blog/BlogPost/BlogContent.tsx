@@ -51,7 +51,7 @@ const BlogContent = ({ post }: BlogContentProps) => {
           width={820}
           height={420}
           alt={(mainImage?.alt as string) ?? ""}
-          layout="responsive"
+          priority
         />
       )}
       <Separator />
