@@ -1,6 +1,5 @@
 import "@/app/styles/globals.css";
 import "@/app/styles/fonts.css";
-import "react-multi-carousel/lib/styles.css";
 
 import { Providers } from "@/providers";
 

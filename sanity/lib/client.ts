@@ -1,6 +1,11 @@
 import { createClient } from "next-sanity";
-import { revalidateSecret } from "@/sanity/lib/api";
-import { apiVersion, dataset, projectId } from "../env";
+
+import {
+  apiVersion,
+  dataset,
+  projectId,
+  revalidateSecret,
+} from "@/sanity/lib/api";
 
 export const client = createClient({
   apiVersion,
