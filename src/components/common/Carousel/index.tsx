@@ -1,9 +1,16 @@
-import { FC } from "react";
-import { ChildProp } from "@/types/common";
-import Carousel from "react-multi-carousel";
-import { responsive } from "@/data";
-import { Card, CardHeader, CardTitle, CardContent } from "../../ui/card";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import { FC } from "react";
+
+// import Carousel from "react-multi-carousel";
+import { responsive } from "@/data";
+import { ChildProp } from "@/types/common";
+
+import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
+
+const Carousel = dynamic(() => import("react-multi-carousel"), {
+  loading: () => <p>Loading...</p>,
+});
 
 export const CarouselComponent: FC<ChildProp> = ({ children }) => {
   return (

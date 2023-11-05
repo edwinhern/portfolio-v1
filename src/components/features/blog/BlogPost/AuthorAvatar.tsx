@@ -1,7 +1,9 @@
-import { Avatar, AvatarFallback, AvatarImage } from "../../../ui/avatar";
-import { Author } from "@/sanity/types";
 import imageUrlBuilder from "@sanity/image-url";
+
 import { client } from "@/sanity/lib/client";
+import { Author } from "@/sanity/types";
+
+import { Avatar, AvatarFallback, AvatarImage } from "../../../ui/avatar";
 
 const builder = imageUrlBuilder(client);
 
@@ -17,8 +19,8 @@ export default function AuthorAvatar(prop: AuthorAvatarProps) {
       <div className="mr-4">
         <Avatar>
           <AvatarImage
-            src={builder.image(image).url()}
-            alt={slug?.current ?? name}
+            src={builder.image(image as any).url()}
+            alt={(slug as string) ?? name}
           />
           <AvatarFallback>EH</AvatarFallback>
         </Avatar>

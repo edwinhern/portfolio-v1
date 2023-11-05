@@ -1,10 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
+
+import { Button } from "@/components/ui/button";
 
 export default function CustomNotFound() {
   const pathname = usePathname();

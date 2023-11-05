@@ -1,12 +1,13 @@
 import { CheckIcon, CopyIcon } from "lucide-react";
 import { useState } from "react";
+
+import { buttonVariants } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { buttonVariants } from "@/components/ui/button";
 
 type CopyLinkProps = { link: string };
 export const CopyLinkButton: React.FC<CopyLinkProps> = ({ link }) => {

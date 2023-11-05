@@ -1,6 +1,7 @@
 import { ArrowUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+
+import { Button } from "@/components/ui/button";
 
 function ScrollToTopButton() {
   const [showButton, setShowButton] = useState(false);

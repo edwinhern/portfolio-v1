@@ -1,7 +1,10 @@
 import { draftMode } from "next/headers";
-import { redirect } from "next/navigation";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
+export const runtime = "edge";
+
+export function GET(request: NextRequest) {
   draftMode().disable();
-  redirect(`/`);
+  const url = new URL(request.nextUrl);
+  return NextResponse.redirect(new URL("/", url.origin));
 }

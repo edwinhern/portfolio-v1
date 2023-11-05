@@ -1,13 +1,16 @@
-import { SanityDocument } from "next-sanity";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { draftMode } from "next/headers";
+import { notFound } from "next/navigation";
+import LiveQuery from "next-sanity/preview/live-query";
+
+import BlogList from "@/components/features/blog/BlogList";
+import BlogListLivePreview from "@/components/features/blog/BlogList/BlogListLivePreview";
 import { seoConfig } from "@/config";
-import { postsQuery } from "@/sanity/lib/queries";
-import { sanityFetch, token } from "@/sanity/lib/sanityFetch";
-import PreviewProvider from "@/providers/PreviewProvider";
-import PreviewPosts from "@/components/features/blog/BlogList/";
-import BlogPostsParent from "@/components/features/blog/BlogList/BlogPostParent";
+import { fetchAllPostsQuery } from "@/sanity/lib/queries";
+import { fetchAllPosts } from "@/sanity/lib/sanityFetch";
+import { BlogPost } from "@/sanity/types";
+
+export const runtime = "edge";
 
 export const metadata: Metadata = {
   ...seoConfig,
@@ -22,19 +25,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home() {
-  const posts = await sanityFetch<SanityDocument[]>({ query: postsQuery });
-  const isDraftMode = draftMode().isEnabled;
+export default async function BlogPostsPage() {
+  const posts = await fetchAllPosts();
 
-  if (!posts) return notFound();
-
-  if (isDraftMode && token) {
-    return (
-      <PreviewProvider token={token}>
-        <PreviewPosts posts={posts} />
-      </PreviewProvider>
-    );
+  if (!posts && !draftMode().isEnabled) {
+    return notFound();
   }
 
-  return <BlogPostsParent posts={posts} />;
+  return (
+    <LiveQuery
+      enabled={draftMode().isEnabled}
+      query={fetchAllPostsQuery}
+      initialData={posts}
+      as={(data: BlogPost[]) => <BlogListLivePreview posts={data} />}
+    >
+      <BlogList posts={posts} />
+    </LiveQuery>
+  );
 }

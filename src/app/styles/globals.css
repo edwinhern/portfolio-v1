@@ -52,6 +52,8 @@
 @layer base {
   * {
     @apply scroll-smooth border-border;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   body {
     @apply bg-background font-gotham text-foreground;

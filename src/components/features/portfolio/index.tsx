@@ -1,12 +1,10 @@
 "use client";
 
-import { BlogSection } from "@/components/features/portfolio/Blog";
-import { ProjectsSection } from "@/components/features/portfolio/Project";
-import { LocationSection } from "@/components/features/portfolio/Location";
-import {
-  AboutMeSection,
-  MobileAboutMeSection,
-} from "@/components/features/portfolio/AboutMe";
+import AboutMeSection from "@/components/features/portfolio/AboutMe";
+import BlogSection from "@/components/features/portfolio/Blog";
+import LocationSection from "@/components/features/portfolio/Location";
+import MobileAboutMeSection from "@/components/features/portfolio/MobileAboutMe";
+import ProjectsSection from "@/components/features/portfolio/Project";
 
 export const PortfolioOverview = () => {
   return (

@@ -1,8 +1,9 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { blogData } from "@/data";
 
-export const BlogSection = () => {
+const BlogSection = () => {
   const { contact, blogs } = blogData;
   const router = useRouter();
 
@@ -35,3 +36,5 @@ export const BlogSection = () => {
     </div>
   );
 };
+
+export default BlogSection;

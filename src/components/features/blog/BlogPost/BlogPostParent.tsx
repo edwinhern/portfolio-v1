@@ -1,17 +1,20 @@
 "use client";
 
-import { SanityDocument } from "@sanity/client";
-import { useIsMounted } from "@/hooks/useIsMounted";
+import BlogContent from "@/components/features/blog/BlogPost/BlogContent";
 import { BlogLayout } from "@/components/Layout/BlogLayout";
-import BlogContent from "./BlogContent";
-import { useParams } from "next/navigation";
+import { useIsMounted } from "@/hooks/useIsMounted";
+import { BlogPostWithDetails } from "@/sanity/types";
 
-export default function BlogPostParent({ post }: { post: SanityDocument }) {
-  const params = useParams();
+interface BlogPostParentProps {
+  post: BlogPostWithDetails;
+}
+
+// TODO: Test taking off isClient hook
+const BlogPostParent = ({ post }: BlogPostParentProps) => {
   const isClient = useIsMounted();
   const metaData = {
-    slug: params.slug,
     title: post.title,
+    slug: post.slug,
   };
 
   return (
@@ -21,4 +24,6 @@ export default function BlogPostParent({ post }: { post: SanityDocument }) {
       </BlogLayout>
     )
   );
-}
+};
+
+export default BlogPostParent;

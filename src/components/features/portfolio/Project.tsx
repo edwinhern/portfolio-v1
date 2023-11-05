@@ -1,7 +1,8 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
-export const ProjectsSection = () => {
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+const ProjectsSection = () => {
   return (
     <Card className="cardAnimation col-span-full flex space-x-4 p-4 md:col-span-5">
       <div className="md:flex md:h-full md:w-full md:flex-col md:justify-center">
@@ -27,3 +28,5 @@ export const ProjectsSection = () => {
     </Card>
   );
 };
+
+export default ProjectsSection;
