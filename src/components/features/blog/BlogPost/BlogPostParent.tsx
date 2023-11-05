@@ -11,7 +11,6 @@ interface BlogPostParentProps {
 
 // TODO: Test taking off isClient hook
 const BlogPostParent = ({ post }: BlogPostParentProps) => {
-  console.log(post);
   const isClient = useIsMounted();
   const metaData = {
     title: post.title,
