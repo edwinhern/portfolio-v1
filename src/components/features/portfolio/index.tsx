@@ -1,5 +1,3 @@
-"use client";
-
 import AboutMeSection from "@/components/features/portfolio/AboutMe";
 import BlogSection from "@/components/features/portfolio/Blog";
 import LocationSection from "@/components/features/portfolio/Location";

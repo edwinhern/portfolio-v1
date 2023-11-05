@@ -1,3 +1,5 @@
+"use client";
+
 import { CarouselComponent, CustomCard } from "@/components/common/Carousel";
 import { aboutMeData } from "@/data";
 
