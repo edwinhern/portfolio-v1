@@ -42,7 +42,7 @@ export async function generateStaticParams() {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await fetchBlogPostBySlug(params.slug);
 
-  if (!post && !draftMode().isEnabled) {
+  if (!post) {
     return notFound();
   }
 

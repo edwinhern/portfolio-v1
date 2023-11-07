@@ -8,7 +8,6 @@ import BlogListLivePreview from "@/components/features/blog/BlogList/BlogListLiv
 import { seoConfig } from "@/config";
 import { fetchAllPostsQuery } from "@/sanity/lib/queries";
 import { fetchAllPosts } from "@/sanity/lib/sanityFetch";
-import { BlogPost } from "@/sanity/types";
 
 export const runtime = "edge";
 
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
 export default async function BlogPostsPage() {
   const posts = await fetchAllPosts();
 
-  if (!posts && !draftMode().isEnabled) {
+  if (posts.length === 0) {
     return notFound();
   }
 
@@ -37,7 +36,7 @@ export default async function BlogPostsPage() {
       enabled={draftMode().isEnabled}
       query={fetchAllPostsQuery}
       initialData={posts}
-      as={(data: BlogPost[]) => <BlogListLivePreview posts={data} />}
+      as={BlogListLivePreview}
     >
       <BlogList posts={posts} />
     </LiveQuery>

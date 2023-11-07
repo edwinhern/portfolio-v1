@@ -7,6 +7,7 @@ interface BlogPostCardProps {
   index: number;
 }
 
+// TODO: Fix delay
 const BlogPostCard = ({ post, index }: BlogPostCardProps) => {
   const delay = 80 * index;
   const { title, slug, publishedAt } = post;
