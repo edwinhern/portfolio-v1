@@ -15,7 +15,7 @@ const BlogTagFilter: React.FC<BlogTagFilterProps> = ({
 }) => {
   return (
     <div
-      className={`animate-slideFromLeftAndFade ${styles["no-scrollbar"]} flex flex-nowrap gap-2 overflow-x-auto`}
+      className={`animate-fade-in ${styles["no-scrollbar"]} flex flex-nowrap gap-2 overflow-x-auto`}
     >
       {tags.map((tag) => {
         const isSelected = selectedTags.includes(tag);

@@ -18,14 +18,17 @@ type BlogPostPageProps = {
   params: { slug: string };
 };
 
-// TODO: Implement dynamic metadata generation based on post data
-export async function generateMetadata(): Promise<Metadata> {
-  const blogTitle = "Blog Title";
-  const blogTopic = "Blog Topic";
+export async function generateMetadata({
+  params: { slug },
+}: BlogPostPageProps): Promise<Metadata> {
+  const post = await fetchBlogPostBySlug(slug);
+
+  const blogTitle = post?.title ?? "Blog Title";
+  const blogTopic = post?.categories ? post.categories.join(" ") : "Blog Topic";
   return {
     ...seoConfig,
     title: `Blog: ${blogTitle} - Edwin H - Portfolio`,
-    description: `Read the blog post titled "${blogTitle}" by Edwin H to dive into ${blogTopic}.`,
+    description: `Read the blog post titled "${post?.title}" by Edwin H to dive into ${blogTopic}.`,
     openGraph: {
       ...seoConfig.openGraph,
       title: `Blog: ${blogTitle} - Edwin H - Portfolio`,
@@ -42,7 +45,7 @@ export async function generateStaticParams() {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await fetchBlogPostBySlug(params.slug);
 
-  if (!post && !draftMode().isEnabled) {
+  if (!post) {
     return notFound();
   }
 
