@@ -8,13 +8,13 @@ interface BlogPostCardProps {
 }
 
 const BlogPostCard = ({ post, index }: BlogPostCardProps) => {
-  const delay = 80 * index;
+  const delay = 60 * index;
   const { title, slug, publishedAt } = post;
   return (
     <li key={title} className="mb-6 hover:opacity-70">
       <Link href={`/blog/${slug}`}>
         <div
-          className="flex items-center justify-between transition animate-slideFromDownAndFade"
+          className="flex items-center justify-between transition animate-fade-in"
           style={{ animationDelay: `${delay}ms` }}
         >
           <div className="flex-1 truncate pr-4">
