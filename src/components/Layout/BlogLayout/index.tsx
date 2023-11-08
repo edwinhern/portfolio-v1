@@ -30,7 +30,7 @@ export const BlogLayout = ({ children, metadata }: BlogLayoutProps) => {
           <TwitterShareButton title={title} baseUrl={baseUrl} slug={slug} />
         </div>
       </div>
-      <div className="animate-slideFromDownAndFade">{children}</div>
+      <div className="md:animate-slideFromDownAndFade">{children}</div>
 
       <hr className="mx-auto my-8 w-28" />
       <ScrollToTopButton />

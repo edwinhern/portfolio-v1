@@ -7,7 +7,7 @@ import ProjectsSection from "@/components/features/portfolio/Project";
 export const PortfolioOverview = () => {
   return (
     <>
-      <div className="animate-slideFromDownAndFade space-y-4">
+      <div className="md:animate-slideFromDownAndFade space-y-4">
         {/* About Me */}
         <MobileAboutMeSection />
         <AboutMeSection />

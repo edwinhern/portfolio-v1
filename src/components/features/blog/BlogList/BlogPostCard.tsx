@@ -14,7 +14,7 @@ const BlogPostCard = ({ post, index }: BlogPostCardProps) => {
     <li key={title} className="mb-6 hover:opacity-70">
       <Link href={`/blog/${slug}`}>
         <div
-          className="flex items-center justify-between transition animate-fade-in"
+          className="flex items-center justify-between transition md:animate-fade-in"
           style={{ animationDelay: `${delay}ms` }}
         >
           <div className="flex-1 truncate pr-4">
