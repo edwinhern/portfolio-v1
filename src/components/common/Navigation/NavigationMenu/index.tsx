@@ -1,54 +1,47 @@
-import {
-  Link,
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@radix-ui/react-navigation-menu";
 import { AlignJustify } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { menuData } from "@/data";
 import { cn } from "@/lib/utils";
 
 export function Menu() {
   const { header, items } = menuData;
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="flex items-center">
-            <AlignJustify size={18} />
-          </NavigationMenuTrigger>
-          <NavigationMenuContent className="absolute right-0 top-full overflow-hidden overflow-y-auto rounded-md bg-background text-foreground shadow-lg">
-            <ul className="grid w-72 gap-3 p-6 sm:w-96 lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild className="hidden sm:flex">
-                  <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md  bg-primary bg-gradient-to-b from-muted/10 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      {header.title}
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      {header.description}
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              {items.map((item) => (
-                <ListItem key={item.href} href={item.href} title={item.title}>
-                  {item.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button size={"icon"} variant="ghost">
+          <AlignJustify size={18} />
+        </Button>
+      </SheetTrigger>
+      <SheetContent>
+        <ul className="grid gap-4 w-full mt-12">
+          <li className="row-span-3">
+            <Card className="">
+              <Link
+                className="flex h-full w-full select-none flex-col justify-end rounded-md  bg-primary bg-gradient-to-b from-muted/10 to-muted p-6 no-underline outline-none focus:shadow-md"
+                href="/"
+              >
+                <div className="mb-2 mt-4 text-lg font-medium">
+                  {header.title}
+                </div>
+                <p className="text-sm leading-tight text-muted-foreground">
+                  {header.description}
+                </p>
+              </Link>
+            </Card>
+          </li>
+          {items.map((item) => (
+            <ListItem key={item.href} href={item.href} title={item.title}>
+              {item.description}
+            </ListItem>
+          ))}
+        </ul>
+      </SheetContent>
+    </Sheet>
   );
 }
 
@@ -58,7 +51,7 @@ const ListItem = React.forwardRef<
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
-      <NavigationMenuLink asChild>
+      <Card>
         <a
           ref={ref}
           className={cn(
@@ -67,12 +60,12 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
+          <div className="text-md font-medium leading-none">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </a>
-      </NavigationMenuLink>
+      </Card>
     </li>
   );
 });

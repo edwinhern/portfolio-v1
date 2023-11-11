@@ -14,6 +14,7 @@ interface BlogLayoutProps {
   };
 }
 
+// TODO: Add Footer
 export const BlogLayout = ({ children, metadata }: BlogLayoutProps) => {
   const { title, slug } = metadata;
 
