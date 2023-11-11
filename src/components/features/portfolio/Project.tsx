@@ -13,6 +13,7 @@ const ProjectsSection = () => {
           className="h-48 w-full rounded-lg object-cover md:h-56 lg:h-64"
           width={420}
           height={200}
+          priority
         />
       </div>
       <div className="mt-1 md:flex md:w-1/2 md:flex-col">
