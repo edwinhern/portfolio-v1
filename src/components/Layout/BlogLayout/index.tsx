@@ -3,8 +3,7 @@
 import Link from "next/link";
 
 import ScrollToTopButton from "@/components/common/ScrollToTop";
-import { CopyLinkButton } from "@/components/features/blog/BlogPost/ShareButton/CopyLinkButton";
-import { TwitterShareButton } from "@/components/features/blog/BlogPost/ShareButton/TwitterShareButton";
+import ShareDropdown from "@/components/features/blog/BlogPost/ShareButton/ShareDropdown";
 import { baseUrl } from "@/config";
 
 interface BlogLayoutProps {
@@ -28,8 +27,7 @@ export const BlogLayout = ({ children, metadata }: BlogLayoutProps) => {
           ← Back to all posts
         </Link>
         <div className="flex gap-2">
-          <CopyLinkButton link={`${baseUrl}/blog/${slug}`} />
-          <TwitterShareButton title={title} baseUrl={baseUrl} slug={slug} />
+          <ShareDropdown link={`${baseUrl}/blog/${slug}`} title={title} />
         </div>
       </div>
       <div className="md:animate-slideFromDownAndFade">{children}</div>
