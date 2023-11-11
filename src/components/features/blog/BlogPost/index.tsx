@@ -1,5 +1,3 @@
-"use client";
-
 import BlogPostParent from "@/components/features/blog/BlogPost/BlogPostParent";
 import { BlogPostWithDetails } from "@/sanity/types";
 

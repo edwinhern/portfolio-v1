@@ -13,6 +13,7 @@ const LocationSection = () => {
           className="h-40 w-full justify-center rounded-t-lg object-cover md:rounded-lg lg:h-48"
           width={420}
           height={200}
+          priority
         />
       </div>
       <CardHeader className="-mb-2 px-4">
