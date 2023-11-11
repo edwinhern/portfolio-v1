@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 
-import { Menu } from "../NavigationMenu";
+import { Menu } from "@/components/common/Navigation/NavigationMenu";
 
 const ThemeToggleButton = dynamic(
   () => import("@/components/common/ThemeToggleButton"),
@@ -11,7 +11,7 @@ const ThemeToggleButton = dynamic(
 
 export const Navbar = () => {
   return (
-    <nav className="sticky inset-x-0 top-0 z-[1100] h-14 w-full border-b bg-background px-4">
+    <nav className="sticky inset-x-0 z-[1100] top-0 h-14 w-full border-b bg-background px-4">
       <div className="flex h-14 items-center justify-between">
         <Link className="text-lg font-semibold hover:underline" href="/">
           Edwin H

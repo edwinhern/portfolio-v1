@@ -15,6 +15,7 @@ const AboutMeSection = () => {
             className="h-48 w-full rounded-t-lg object-cover"
             width={420}
             height={200}
+            priority
           />
           <CardHeader className="px-4">
             <CardTitle className="text-sm font-medium">{item.title}</CardTitle>

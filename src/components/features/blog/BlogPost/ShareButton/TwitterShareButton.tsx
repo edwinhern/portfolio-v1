@@ -1,45 +1,29 @@
-import { TwitterLogoIcon } from "@radix-ui/react-icons";
+import { Twitter } from "lucide-react";
 
-import { buttonVariants } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
-interface TwitterLinkProps {
-  title: string | undefined;
-  baseUrl: string | undefined;
-  slug: string | undefined;
-}
+type TwitterLinkProps = {
+  link: string;
+  title: string;
+};
 
-export const TwitterShareButton = ({
-  title,
-  baseUrl,
-  slug,
-}: TwitterLinkProps) => {
+export const TwitterShareButton = ({ link, title }: TwitterLinkProps) => {
   const handleClick = () => {
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       title as string,
-    )}&url=${encodeURIComponent(`${baseUrl}/blog/${slug}`)}`;
+    )}&url=${encodeURIComponent(link)}`;
     window.open(tweetUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger
-          className={`${buttonVariants({
-            variant: "ghost",
-            size: "icon",
-          })}`}
-          onClick={handleClick}
-        >
-          <TwitterLogoIcon className="h-4 w-4 text-black dark:text-white" />
-        </TooltipTrigger>
-        <TooltipContent className="z-[2000]">Share on Twitter</TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <>
+      <DropdownMenuItem
+        className="flex items-center gap-2"
+        onClick={handleClick}
+      >
+        <Twitter className="h-4 w-4" />
+        Share on Twitter
+      </DropdownMenuItem>
+    </>
   );
 };
