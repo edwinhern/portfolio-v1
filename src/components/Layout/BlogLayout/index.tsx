@@ -31,7 +31,7 @@ export const BlogLayout = ({ children, metadata }: BlogLayoutProps) => {
           <ShareDropdown link={`${baseUrl}/blog/${slug}`} title={title} />
         </div>
       </div>
-      <div className="md:animate-slideFromDownAndFade">{children}</div>
+      <div className="animate-slideFromDownAndFade">{children}</div>
 
       <hr className="mx-auto my-8 w-28" />
       <ScrollToTopButton />
