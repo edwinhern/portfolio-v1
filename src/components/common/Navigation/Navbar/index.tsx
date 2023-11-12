@@ -11,13 +11,13 @@ const ThemeToggleButton = dynamic(
 
 export const Navbar = () => {
   return (
-    <nav className="sticky inset-x-0 z-[1100] top-0 h-14 w-full border-b bg-background px-4">
+    <nav className="container sticky inset-x-0 z-[1100] top-0 h-14 w-full border-b bg-background">
       <div className="flex h-14 items-center justify-between">
         <Link className="text-lg font-semibold hover:underline" href="/">
           Edwin H
         </Link>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center gap-2">
           <ThemeToggleButton />
           <Menu />
         </div>

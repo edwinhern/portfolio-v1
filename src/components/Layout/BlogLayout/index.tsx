@@ -20,7 +20,7 @@ export const BlogLayout = ({ children, metadata }: BlogLayoutProps) => {
 
   return (
     <article>
-      <div className="container mx-auto prose dark:prose-invert prose-lg max-w-prose mb-8 flex items-center justify-between">
+      <div className="container prose dark:prose-invert prose-lg max-w-prose mb-8 flex items-center justify-between">
         <Link
           href="/blog"
           className="text-base inline-flex font-normal no-underline transition hover:opacity-70"
