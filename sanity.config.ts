@@ -17,7 +17,7 @@ import {
 } from "@/sanity/lib/api";
 import post from "@/sanity/schemas/post";
 
-import { schema } from "./sanity/schema";
+import { schema } from "./sanity/schemas";
 
 export const PREVIEWABLE_DOCUMENT_TYPES = [post.name] satisfies string[];
 

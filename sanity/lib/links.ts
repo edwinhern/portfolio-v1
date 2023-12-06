@@ -6,7 +6,7 @@ export function resolveHref(
     case "home":
       return "/";
     case "project":
-      return slug ? `/projects/${slug}` : undefined;
+      return slug ? `/project/${slug}` : undefined;
     case "post":
       return slug ? `/blog/${slug}` : undefined;
     default:

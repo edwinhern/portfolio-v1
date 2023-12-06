@@ -7,15 +7,18 @@ import { revalidateSecret } from "@/sanity/lib/api";
 import { client } from "@/sanity/lib/client";
 import {
   fetchAllPostsQuery,
+  fetchAllProjectsQuery,
   queryForBlogPostSlugs,
   queryForBlogPostSlugStrings,
+  queryForProjectPostSlugStrings,
   queryForSingleBlogPostBySlug,
+  queryForSingleProjectPostBySlug,
 } from "@/sanity/lib/queries";
 import {
   BlogPost,
-  BlogPostSlug,
-  BlogPostSlugsArray,
   BlogPostWithDetails,
+  ProjectPost,
+  SlugsArray,
 } from "@/sanity/types";
 
 const DEFAULT_PARAMS = {} as QueryParams;
@@ -65,13 +68,6 @@ export function fetchBlogPostBySlug(
   });
 }
 
-export function fetchBlogPostPathsForSSG(): Promise<BlogPostSlug[]> {
-  return client.fetch<BlogPostSlug[]>(
-    queryForBlogPostSlugs,
-    {},
-    { token, perspective: "published" },
-  );
-}
 export function fetchAllPosts(): Promise<BlogPost[]> {
   return sanityFetch<BlogPost[]>({
     query: fetchAllPostsQuery,
@@ -79,9 +75,34 @@ export function fetchAllPosts(): Promise<BlogPost[]> {
   });
 }
 
-export function fetchBlogPostSlugs(): Promise<BlogPostSlugsArray> {
-  return client.fetch<BlogPostSlugsArray>(
+export function fetchBlogPostSlugs(): Promise<SlugsArray> {
+  return client.fetch<SlugsArray>(
     queryForBlogPostSlugStrings,
+    {},
+    { token, perspective: "published" },
+  );
+}
+
+export function fetchAllProjects() {
+  return sanityFetch<ProjectPost[]>({
+    query: fetchAllProjectsQuery,
+    tags: ["project"],
+  });
+}
+
+export function fetchProjectPostBySlug(
+  slug: string,
+): Promise<ProjectPost | null> {
+  return sanityFetch<ProjectPost | null>({
+    query: queryForSingleProjectPostBySlug,
+    params: { slug },
+    tags: [`page:${slug}`],
+  });
+}
+
+export function fetchProjectPostSlugs(): Promise<SlugsArray> {
+  return client.fetch<SlugsArray>(
+    queryForProjectPostSlugStrings,
     {},
     { token, perspective: "published" },
   );

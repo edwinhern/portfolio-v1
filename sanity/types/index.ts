@@ -4,31 +4,43 @@ import type { Image } from "sanity";
 export interface Author {
   name: string;
   image: Image;
-  slug?: { current?: string };
+  slug?: string;
 }
 
 export interface Category {
   title: string;
-  description?: string;
 }
 
-export interface BlogPost {
+export interface BasePost {
   _id: string;
   title: string;
   slug: string;
   publishedAt: string;
-  tags?: string[];
   categories: Category[];
 }
 
+export interface BlogPost extends BasePost {
+  tags?: string[];
+}
+
 export interface BlogPostWithDetails extends BlogPost {
+  author: Author;
   mainImage: Image;
   body: PortableTextBlock[];
+}
+
+export type SlugsArray = string[];
+
+export interface ProjectPost extends BasePost {
   author: Author;
+  mainImage: Image;
+  excerpt: string;
 }
 
-export interface BlogPostSlug {
-  params: { slug: string };
+export interface PostWithDetails extends BasePost {
+  author: Author;
+  mainImage: Image;
+  body?: PortableTextBlock[];
+  excerpt?: string;
+  tags?: string[];
 }
-
-export type BlogPostSlugsArray = string[];

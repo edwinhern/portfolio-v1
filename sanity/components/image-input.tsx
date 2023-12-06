@@ -1,15 +1,18 @@
-import Image from "next/image";
 import imageUrlBuilder from "@sanity/image-url";
+import Image from "next/image";
+
 import { client } from "@/sanity/lib/client";
+
 const builder = imageUrlBuilder(client);
 
 export const ImageFieldComponent = ({ value }: any) => {
   return (
     <Image
-      className="rounded-lg"
+      className="w-full h-auto rounded-lg"
+      width={2000}
+      height={1000}
       src={builder.image(value).url()}
-      width={800}
-      height={800}
+      sizes="100vw"
       alt={value.alt || " "}
       loading="lazy"
     />

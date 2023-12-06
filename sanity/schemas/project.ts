@@ -11,12 +11,13 @@ import {
 } from "./commonFields";
 
 export default defineType({
-  name: "post",
-  title: "Post",
+  name: "project",
+  title: "Project",
   type: "document",
   fields: [
     stringField({ name: "title", title: "Title" }),
     slugField("title"),
+    stringField({ name: "excerpt", title: "Excerpt" }),
     authorField,
     imageField({ name: "mainImage", title: "Main Image" }),
     categoriesField("category"),

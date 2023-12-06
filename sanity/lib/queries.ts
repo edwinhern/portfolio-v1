@@ -42,3 +42,53 @@ export const queryForBlogPostSlugs = groq`
 export const queryForBlogPostSlugStrings = groq`
   *[_type == "post" && slug.current != null].slug.current
 `;
+
+// Get all projects
+export const fetchAllProjectsQuery = groq`
+  *[_type == "project" && defined(slug.current)] | order(publishedAt desc){
+    _id, 
+    title,
+    excerpt,
+    mainImage,
+    slug, 
+    publishedAt, 
+    tags,
+    "slug": slug.current,
+    "author": author->{
+        name,
+        "slug": slug.current,
+        image
+    },
+    "categories": projectCategory[]->{
+      title,
+      description
+    }
+  }`;
+
+// Get a single Project by its slug
+export const queryForSingleProjectPostBySlug = groq`
+  *[_type == "project" && slug.current == $slug][0] {
+     _id, 
+    title,
+    excerpt,
+    body, 
+    mainImage,
+    slug, 
+    publishedAt, 
+    tags,
+    "slug": slug.current,
+    "author": author->{
+        name,
+        "slug": slug.current,
+        image
+    },
+    "categories": projectCategory[]->{
+      title,
+      description
+    }
+  }`;
+
+// Query to get all project slugs as simple string array
+export const queryForProjectPostSlugStrings = groq`
+  *[_type == "project" && slug.current != null].slug.current
+`;

@@ -1,19 +1,10 @@
-import { defineField, defineType } from "sanity";
+import { defineType } from "sanity";
+
+import { stringField } from "./commonFields";
 
 export default defineType({
   name: "category",
   title: "Category",
   type: "document",
-  fields: [
-    defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
-    }),
-    defineField({
-      name: "description",
-      title: "Description",
-      type: "text",
-    }),
-  ],
+  fields: [stringField({ name: "title", title: "Title" })],
 });

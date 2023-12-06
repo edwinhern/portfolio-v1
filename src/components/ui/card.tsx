@@ -9,21 +9,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, href, ...props }, ref) => {
-    if (href) {
-      return (
-        <Link
-          href={href}
-          className={cn(
-            "rounded-lg border bg-card text-card-foreground shadow-sm",
-            className,
-          )}
-        >
-          <div ref={ref} {...props} />
-        </Link>
-      );
-    }
-
-    return (
+    const cardContent = (
       <div
         ref={ref}
         className={cn(
@@ -33,6 +19,16 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         {...props}
       />
     );
+
+    if (href) {
+      return (
+        <Link legacyBehavior href={href}>
+          {cardContent}
+        </Link>
+      );
+    }
+
+    return cardContent;
   },
 );
 Card.displayName = "Card";
