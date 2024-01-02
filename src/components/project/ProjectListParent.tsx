@@ -12,7 +12,7 @@ const ProjectListParent = ({ projects }: { projects: ProjectPost[] }) => {
   const [mainPost, ...morePosts] = projects;
 
   return (
-    <div className="container">
+    <>
       {mainPost && (
         <FeaturedProject
           key={mainPost._id}
@@ -25,7 +25,7 @@ const ProjectListParent = ({ projects }: { projects: ProjectPost[] }) => {
         />
       )}
       {morePosts.length > 0 && <ProjectGrid projects={morePosts} />}
-    </div>
+    </>
   );
 };
 
