@@ -1,4 +1,4 @@
-import { defineType } from "sanity";
+import { defineType } from 'sanity';
 
 import {
   authorField,
@@ -8,28 +8,28 @@ import {
   publishedAtField,
   slugField,
   stringField,
-} from "./commonFields";
+} from './commonFields';
 
 export default defineType({
-  name: "project",
-  title: "Project",
-  type: "document",
+  name: 'project',
+  title: 'Project',
+  type: 'document',
   fields: [
-    stringField({ name: "title", title: "Title" }),
-    slugField("title"),
-    stringField({ name: "excerpt", title: "Excerpt" }),
+    stringField({ name: 'title', title: 'Title' }),
+    slugField('title'),
+    stringField({ name: 'excerpt', title: 'Excerpt' }),
     authorField,
-    imageField({ name: "mainImage", title: "Main Image" }),
-    categoriesField("category"),
+    imageField({ name: 'mainImage', title: 'Main Image' }),
+    categoriesField('category'),
     publishedAtField,
     bodyField,
   ],
 
   preview: {
     select: {
-      title: "title",
-      author: "author.name",
-      media: "mainImage",
+      title: 'title',
+      author: 'author.name',
+      media: 'mainImage',
     },
     prepare(selection) {
       const { author } = selection;

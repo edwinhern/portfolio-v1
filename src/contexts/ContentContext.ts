@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { createContext, useContext } from "react";
+import { createContext, useContext } from 'react';
 
 interface ContentTypeDetails {
   href: string;
@@ -13,23 +13,23 @@ interface ContentTypes {
 }
 
 interface ContentContextValue {
-  contentType: "blog" | "project";
+  contentType: 'blog' | 'project';
   contentTypes: ContentTypes;
 }
 
 export const defaultContentTypes: ContentTypes = {
   blog: {
-    href: "/blog",
-    name: "posts",
+    href: '/blog',
+    name: 'posts',
   },
   project: {
-    href: "/project",
-    name: "projects",
+    href: '/project',
+    name: 'projects',
   },
 };
 
 const ContentContext = createContext<ContentContextValue>({
-  contentType: "blog",
+  contentType: 'blog',
   contentTypes: defaultContentTypes,
 });
 

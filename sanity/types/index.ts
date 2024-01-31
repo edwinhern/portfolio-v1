@@ -1,5 +1,5 @@
-import type { PortableTextBlock } from "@portabletext/types";
-import type { Image } from "sanity";
+import type { PortableTextBlock } from '@portabletext/types';
+import type { Image } from 'sanity';
 
 export interface Author {
   name: string;

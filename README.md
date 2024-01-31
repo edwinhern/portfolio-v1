@@ -1,4 +1,3 @@
-[![Check](https://github.com/edwinhern/portfolio/actions/workflows/check.yml/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/check.yml)
 [![Code Review](https://github.com/edwinhern/portfolio/actions/workflows/cr.yml/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/cr.yml)
 [![CodeQL](https://github.com/edwinhern/portfolio/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/github-code-scanning/codeql)
 [![Next.js Bundle Analysis](https://github.com/edwinhern/portfolio/actions/workflows/nextjs_bundle_analysis.yml/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/nextjs_bundle_analysis.yml)

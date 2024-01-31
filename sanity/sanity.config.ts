@@ -1,32 +1,22 @@
-import { codeInput } from "@sanity/code-input";
-import { visionTool } from "@sanity/vision";
-import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
-import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
-import Iframe, {
-  defineUrlResolver,
-  IframeOptions,
-} from "sanity-plugin-iframe-pane";
-import { previewUrl } from "sanity-plugin-iframe-pane/preview-url";
+import { codeInput } from '@sanity/code-input';
+import { visionTool } from '@sanity/vision';
+import { defineConfig } from 'sanity';
+import { deskTool } from 'sanity/desk';
+import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash';
+import Iframe, { defineUrlResolver, IframeOptions } from 'sanity-plugin-iframe-pane';
+import { previewUrl } from 'sanity-plugin-iframe-pane/preview-url';
 
-import {
-  apiVersion,
-  dataset,
-  previewSecretId,
-  projectId,
-} from "@/sanity/lib/api";
-import post from "@/sanity/schemas/post";
+import { apiVersion, dataset, previewSecretId, projectId } from '@/sanity/lib/api';
+import post from '@/sanity/schemas/post';
 
-import { schema } from "./sanity/schemas";
+import { schema } from './schemas';
 
 export const PREVIEWABLE_DOCUMENT_TYPES = [post.name] satisfies string[];
 
-export const PREVIEWABLE_DOCUMENT_TYPES_REQUIRING_SLUGS = [
-  post.name,
-] satisfies typeof PREVIEWABLE_DOCUMENT_TYPES;
+export const PREVIEWABLE_DOCUMENT_TYPES_REQUIRING_SLUGS = [post.name] satisfies typeof PREVIEWABLE_DOCUMENT_TYPES;
 
 // Used to generate URLs for drafts and live previews
-export const PREVIEW_BASE_URL = "/api/preview";
+export const PREVIEW_BASE_URL = '/api/preview';
 
 export const urlResolver = defineUrlResolver({
   base: PREVIEW_BASE_URL,
@@ -39,7 +29,7 @@ export const iframeOptions = {
 } satisfies IframeOptions;
 
 export default defineConfig({
-  basePath: "/admin",
+  basePath: '/admin',
   projectId,
   dataset,
   schema,
@@ -52,7 +42,7 @@ export default defineConfig({
             // Default form view
             S.view.form(),
             // Preview
-            S.view.component(Iframe).options(iframeOptions).title("Preview"),
+            S.view.component(Iframe).options(iframeOptions).title('Preview'),
           ]);
         }
 

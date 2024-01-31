@@ -1,32 +1,25 @@
-import { Metadata } from "next";
-import { draftMode } from "next/headers";
-import { notFound } from "next/navigation";
-import LiveQuery from "next-sanity/preview/live-query";
+import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
+import LiveQuery from 'next-sanity/preview/live-query';
 
-import ProjectPostLivePreview from "@/components/content/DynamicContent";
-import ProjectSlugPage from "@/components/pages/project/[slug]";
-import { seoConfig } from "@/lib/network-utils";
-import { queryForSingleProjectPostBySlug } from "@/sanity/lib/queries";
-import {
-  fetchProjectPostBySlug,
-  fetchProjectPostSlugs,
-} from "@/sanity/lib/sanityFetch";
+import ProjectPostLivePreview from '@/components/content/DynamicContent';
+import ProjectSlugPage from '@/components/pages/project/[slug]';
+import { seoConfig } from '@/lib/network-utils';
+import { queryForSingleProjectPostBySlug } from '@/sanity/lib/queries';
+import { fetchProjectPostBySlug, fetchProjectPostSlugs } from '@/sanity/lib/sanityFetch';
 
-export const runtime = "edge";
+export const runtime = 'edge';
 
 type ProjectPostPageProps = {
   params: { slug: string };
 };
 
-export async function generateMetadata({
-  params: { slug },
-}: ProjectPostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params: { slug } }: ProjectPostPageProps): Promise<Metadata> {
   const project = await fetchProjectPostBySlug(slug);
 
-  const projectTitle = project?.title ?? "Project Title";
-  const projectTopic = project?.categories
-    ? project.categories.join(" ")
-    : "Project Topic";
+  const projectTitle = project?.title ?? 'Project Title';
+  const projectTopic = project?.categories ? project.categories.join(' ') : 'Project Topic';
   return {
     ...seoConfig,
     title: `Project: ${projectTitle} - Edwin H - Portfolio`,
@@ -44,9 +37,7 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-export default async function ProjectPostPage({
-  params,
-}: ProjectPostPageProps) {
+export default async function ProjectPostPage({ params }: ProjectPostPageProps) {
   const project = await fetchProjectPostBySlug(params.slug);
 
   if (!project) {

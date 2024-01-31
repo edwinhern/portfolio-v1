@@ -1,30 +1,25 @@
-import { Metadata } from "next";
-import { draftMode } from "next/headers";
-import { notFound } from "next/navigation";
-import LiveQuery from "next-sanity/preview/live-query";
+import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
+import LiveQuery from 'next-sanity/preview/live-query';
 
-import BlogPostLivePreview from "@/components/content/DynamicContent";
-import BlogSlugPage from "@/components/pages/blog/[slug]";
-import { seoConfig } from "@/lib/network-utils";
-import { queryForSingleBlogPostBySlug } from "@/sanity/lib/queries";
-import {
-  fetchBlogPostBySlug,
-  fetchBlogPostSlugs,
-} from "@/sanity/lib/sanityFetch";
+import BlogPostLivePreview from '@/components/content/DynamicContent';
+import BlogSlugPage from '@/components/pages/blog/[slug]';
+import { seoConfig } from '@/lib/network-utils';
+import { queryForSingleBlogPostBySlug } from '@/sanity/lib/queries';
+import { fetchBlogPostBySlug, fetchBlogPostSlugs } from '@/sanity/lib/sanityFetch';
 
-export const runtime = "edge";
+export const runtime = 'edge';
 
 type BlogPostPageProps = {
   params: { slug: string };
 };
 
-export async function generateMetadata({
-  params: { slug },
-}: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params: { slug } }: BlogPostPageProps): Promise<Metadata> {
   const post = await fetchBlogPostBySlug(slug);
 
-  const blogTitle = post?.title ?? "Blog Title";
-  const blogTopic = post?.categories ? post.categories.join(" ") : "Blog Topic";
+  const blogTitle = post?.title ?? 'Blog Title';
+  const blogTopic = post?.categories ? post.categories.join(' ') : 'Blog Topic';
   return {
     ...seoConfig,
     title: `Blog: ${blogTitle} - Edwin H - Portfolio`,

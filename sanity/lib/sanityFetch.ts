@@ -1,10 +1,10 @@
-import "server-only";
+import 'server-only';
 
-import type { QueryParams } from "@sanity/client";
-import { draftMode } from "next/headers";
+import type { QueryParams } from '@sanity/client';
+import { draftMode } from 'next/headers';
 
-import { revalidateSecret } from "@/sanity/lib/api";
-import { client } from "@/sanity/lib/client";
+import { revalidateSecret } from '@/sanity/lib/api';
+import { client } from '@/sanity/lib/client';
 import {
   fetchAllPostsQuery,
   fetchAllProjectsQuery,
@@ -13,13 +13,8 @@ import {
   queryForProjectPostSlugStrings,
   queryForSingleBlogPostBySlug,
   queryForSingleProjectPostBySlug,
-} from "@/sanity/lib/queries";
-import {
-  BlogPost,
-  BlogPostWithDetails,
-  ProjectPost,
-  SlugsArray,
-} from "@/sanity/types";
+} from '@/sanity/lib/queries';
+import { BlogPost, BlogPostWithDetails, ProjectPost, SlugsArray } from '@/sanity/types';
 
 const DEFAULT_PARAMS = {} as QueryParams;
 const DEFAULT_TAGS = [] as string[];
@@ -37,30 +32,23 @@ export async function sanityFetch<QueryResponse>({
 }): Promise<QueryResponse> {
   const isDraftMode = draftMode().isEnabled;
   if (isDraftMode && !token) {
-    throw new Error(
-      "The `SANITY_API_READ_TOKEN` environment variable is required.",
-    );
+    throw new Error('The `SANITY_API_READ_TOKEN` environment variable is required.');
   }
 
-  const sanityClient =
-    client.config().useCdn && isDraftMode
-      ? client.withConfig({ useCdn: false })
-      : client;
+  const sanityClient = client.config().useCdn && isDraftMode ? client.withConfig({ useCdn: false }) : client;
 
   return sanityClient.fetch<QueryResponse>(query, params, {
-    cache: revalidateSecret ? "force-cache" : "no-store",
+    cache: revalidateSecret ? 'force-cache' : 'no-store',
     ...(isDraftMode && {
       cache: undefined,
       token: token,
-      perspective: "previewDrafts",
+      perspective: 'previewDrafts',
     }),
     next: { ...(isDraftMode && { revalidate: 30 }), tags },
   });
 }
 
-export function fetchBlogPostBySlug(
-  slug: string,
-): Promise<BlogPostWithDetails | null> {
+export function fetchBlogPostBySlug(slug: string): Promise<BlogPostWithDetails | null> {
   return sanityFetch<BlogPostWithDetails | null>({
     query: queryForSingleBlogPostBySlug,
     params: { slug },
@@ -71,28 +59,22 @@ export function fetchBlogPostBySlug(
 export function fetchAllPosts(): Promise<BlogPost[]> {
   return sanityFetch<BlogPost[]>({
     query: fetchAllPostsQuery,
-    tags: ["post"],
+    tags: ['post'],
   });
 }
 
 export function fetchBlogPostSlugs(): Promise<SlugsArray> {
-  return client.fetch<SlugsArray>(
-    queryForBlogPostSlugStrings,
-    {},
-    { token, perspective: "published" },
-  );
+  return client.fetch<SlugsArray>(queryForBlogPostSlugStrings, {}, { token, perspective: 'published' });
 }
 
 export function fetchAllProjects() {
   return sanityFetch<ProjectPost[]>({
     query: fetchAllProjectsQuery,
-    tags: ["project"],
+    tags: ['project'],
   });
 }
 
-export function fetchProjectPostBySlug(
-  slug: string,
-): Promise<ProjectPost | null> {
+export function fetchProjectPostBySlug(slug: string): Promise<ProjectPost | null> {
   return sanityFetch<ProjectPost | null>({
     query: queryForSingleProjectPostBySlug,
     params: { slug },
@@ -101,9 +83,5 @@ export function fetchProjectPostBySlug(
 }
 
 export function fetchProjectPostSlugs(): Promise<SlugsArray> {
-  return client.fetch<SlugsArray>(
-    queryForProjectPostSlugStrings,
-    {},
-    { token, perspective: "published" },
-  );
+  return client.fetch<SlugsArray>(queryForProjectPostSlugStrings, {}, { token, perspective: 'published' });
 }

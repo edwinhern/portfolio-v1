@@ -1,13 +1,13 @@
-import { draftMode } from "next/headers";
-import { notFound } from "next/navigation";
-import { LiveQuery } from "next-sanity/preview/live-query";
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
+import { LiveQuery } from 'next-sanity/preview/live-query';
 
-import ProjectIndexPage from "@/components/pages/project";
-import ProjectListLivePreview from "@/components/project/DynamicProjectList";
-import { fetchAllProjectsQuery } from "@/sanity/lib/queries";
-import { fetchAllProjects } from "@/sanity/lib/sanityFetch";
+import ProjectIndexPage from '@/components/pages/project';
+import ProjectListLivePreview from '@/components/project/DynamicProjectList';
+import { fetchAllProjectsQuery } from '@/sanity/lib/queries';
+import { fetchAllProjects } from '@/sanity/lib/sanityFetch';
 
-export const runtime = "edge";
+export const runtime = 'edge';
 
 export default async function ProjectPostsPage() {
   const projects = await fetchAllProjects();

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import dynamic from "next/dynamic";
-import { suspend } from "suspend-react";
+import dynamic from 'next/dynamic';
+import { suspend } from 'suspend-react';
 
-const LiveQueryProvider = dynamic(() => import("next-sanity/preview"));
+const LiveQueryProvider = dynamic(() => import('next-sanity/preview'));
 
-const UniqueKey = Symbol("../../sanity/lib/client");
+const UniqueKey = Symbol('../../sanity/lib/client');
 interface PreviewProviderProps {
   children: React.ReactNode;
   token: string;
@@ -13,10 +13,7 @@ interface PreviewProviderProps {
 
 export default function PreviewProvider(props: PreviewProviderProps) {
   const { children, token } = props;
-  const { client } = suspend(
-    () => import("../../sanity/lib/client"),
-    [UniqueKey],
-  );
+  const { client } = suspend(() => import('../../sanity/lib/client'), [UniqueKey]);
 
   if (!token) return children;
 

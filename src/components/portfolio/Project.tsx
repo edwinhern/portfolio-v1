@@ -1,14 +1,11 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const ProjectsSection = () => {
   return (
-    <Card
-      href={"/project"}
-      className="cardAnimation col-span-full flex space-x-4 p-4 md:col-span-5"
-    >
-      <div className="md:flex md:h-full md:w-full md:flex-col md:justify-center">
+    <Card href={'/project'} className="cardAnimation col-span-full flex space-x-4 p-4 md:col-span-5">
+      <div className="md:flex md:size-full md:flex-col md:justify-center">
         <Image
           draggable={false}
           src="/projects/wildfire-tracker.png"
@@ -24,9 +21,7 @@ const ProjectsSection = () => {
           <CardTitle className="text-lg font-bold">Recent Projects</CardTitle>
         </CardHeader>
         <CardContent className="p-4">
-          <div className="text-sm text-muted-foreground">
-            Experience the majesty of nature&apos;s vast expanse.
-          </div>
+          <div className="text-sm text-muted-foreground">Experience the majesty of nature&apos;s vast expanse.</div>
         </CardContent>
       </div>
     </Card>

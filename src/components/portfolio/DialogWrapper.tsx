@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -6,19 +6,15 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { ChildProp } from "@/types/common";
+} from '@/components/ui/dialog';
+import { ChildProp } from '@/types/common';
 
 interface DialogWrapperProps extends ChildProp {
   dialogTitle: string;
   dialogDescription: string;
 }
 
-const DialogWrapper: React.FC<DialogWrapperProps> = ({
-  children,
-  dialogTitle,
-  dialogDescription,
-}) => {
+const DialogWrapper: React.FC<DialogWrapperProps> = ({ children, dialogTitle, dialogDescription }) => {
   return (
     <>
       <Dialog>
@@ -26,14 +22,10 @@ const DialogWrapper: React.FC<DialogWrapperProps> = ({
         <DialogContent>
           <Card>
             <CardHeader className="px-4">
-              <CardTitle className="text-sm font-medium">
-                {dialogTitle}
-              </CardTitle>
+              <CardTitle className="text-sm font-medium">{dialogTitle}</CardTitle>
             </CardHeader>
             <CardContent className="px-4">
-              <div className="text-sm text-muted-foreground">
-                {dialogDescription}
-              </div>
+              <div className="text-sm text-muted-foreground">{dialogDescription}</div>
             </CardContent>
           </Card>
           <DialogHeader>

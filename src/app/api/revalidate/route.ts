@@ -22,11 +22,11 @@
  * 16. Redeploy with `npx vercel --prod` to apply the new environment variable
  */
 
-import { revalidateTag } from "next/cache";
-import { type NextRequest, NextResponse } from "next/server";
-import { parseBody } from "next-sanity/webhook";
+import { revalidateTag } from 'next/cache';
+import { type NextRequest, NextResponse } from 'next/server';
+import { parseBody } from 'next-sanity/webhook';
 
-import { revalidateSecret } from "@/sanity/lib/api";
+import { revalidateSecret } from '@/sanity/lib/api';
 
 export async function POST(req: NextRequest) {
   try {
@@ -35,12 +35,12 @@ export async function POST(req: NextRequest) {
       slug?: string | undefined;
     }>(req, revalidateSecret);
     if (!isValidSignature) {
-      const message = "Invalid signature";
+      const message = 'Invalid signature';
       return new Response(message, { status: 401 });
     }
 
     if (!body?._type) {
-      return new Response("Bad Request", { status: 400 });
+      return new Response('Bad Request', { status: 400 });
     }
 
     revalidateTag(body._type);
