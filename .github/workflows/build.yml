@@ -1,8 +1,8 @@
-name: Build Next.js Application
+name: 'Build Next.js Application'
 
 on:
   push:
-     branches: [develop]
+    branches: [develop]
   pull_request:
     branches: [develop]
 
