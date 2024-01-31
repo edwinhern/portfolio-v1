@@ -1,5 +1,5 @@
-import CodeFieldComponent from "./code-input";
-import ImageFieldComponent from "./image-input";
+import CodeFieldComponent from './code-input';
+import ImageFieldComponent from './image-input';
 
 const RichTextComponent = {
   types: {

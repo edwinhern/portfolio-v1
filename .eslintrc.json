@@ -2,6 +2,7 @@
   "extends": ["next", "plugin:prettier/recommended", "plugin:tailwindcss/recommended"],
   "plugins": ["simple-import-sort"],
   "rules": {
+    "tailwindcss/no-custom-classname": "off",
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "simple-import-sort/imports": "error",
     "import/first": "error",
