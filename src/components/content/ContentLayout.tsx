@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import ShareDropdown from "@/components/content/ShareButton/ShareDropdown";
-import { BackToTopButton } from "@/components/ui/back-to-top-button";
-import { useContentContext } from "@/contexts/ContentContext";
-import { baseUrl } from "@/lib/network-utils";
+import ShareDropdown from '@/components/content/ShareButton/ShareDropdown';
+import { BackToTopButton } from '@/components/ui/back-to-top-button';
+import { useContentContext } from '@/contexts/ContentContext';
+import { baseUrl } from '@/lib/network-utils';
 
 interface BlogLayoutProps {
   children: React.ReactNode;
@@ -21,18 +21,15 @@ const ContentLayout = ({ children, metadata }: BlogLayoutProps) => {
 
   return (
     <article>
-      <div className="mx-auto prose dark:prose-invert prose-lg max-w-prose mb-8 flex items-center justify-between">
+      <div className="prose prose-lg mx-auto mb-8 flex max-w-prose items-center justify-between dark:prose-invert">
         <Link
           href={backLinkHref}
-          className="text-base inline-flex font-normal no-underline transition hover:opacity-70"
+          className="inline-flex text-base font-normal no-underline transition hover:opacity-70"
         >
           ← Back to all {backLinkName}
         </Link>
         <div className="flex gap-2">
-          <ShareDropdown
-            link={`${baseUrl}/${contentType}/${slug}`}
-            title={title}
-          />
+          <ShareDropdown link={`${baseUrl}/${contentType}/${slug}`} title={title} />
         </div>
       </div>
       <div className="animate-slideFromDownAndFade">{children}</div>

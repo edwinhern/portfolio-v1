@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useToast } from "@/components/ui/use-toast";
-import blogData from "@/data/blogData";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useToast } from '@/components/ui/use-toast';
+import blogData from '@/data/blogData';
 
 const BlogSection = () => {
   const { contact, blogs } = blogData;
@@ -14,10 +14,7 @@ const BlogSection = () => {
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-7">
-      <Card
-        className="cardAnimation col-span-full md:col-span-4"
-        onClick={handleCardClick}
-      >
+      <Card className="cardAnimation col-span-full md:col-span-4" onClick={handleCardClick}>
         <CardHeader className="px-4">
           <CardTitle className="text-lg font-bold">{contact.title}</CardTitle>
         </CardHeader>
@@ -26,11 +23,7 @@ const BlogSection = () => {
         </CardContent>
       </Card>
 
-      <Card
-        href={"/blog"}
-        className="cardAnimation col-span-full md:col-span-3"
-        role="button"
-      >
+      <Card href={'/blog'} className="cardAnimation col-span-full md:col-span-3" role="button">
         <CardHeader className="px-4">
           <CardTitle className="text-lg font-bold">{blogs.title}</CardTitle>
         </CardHeader>

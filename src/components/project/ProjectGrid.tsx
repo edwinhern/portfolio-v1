@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { Image } from "sanity";
+import Link from 'next/link';
+import { Image } from 'sanity';
 
-import ProjectAuthorAvatar from "@/components/project/ProjectAuthorAvatar";
-import CoverImage from "@/components/project/ProjectCoverImage";
-import FormattedDate from "@/components/ui/formatted-date";
-import { Author, ProjectPost } from "@/sanity/types";
+import ProjectAuthorAvatar from '@/components/project/ProjectAuthorAvatar';
+import CoverImage from '@/components/project/ProjectCoverImage';
+import FormattedDate from '@/components/ui/formatted-date';
+import { Author, ProjectPost } from '@/sanity/types';
 
 interface ProjectPlugProps {
   title: string;
@@ -15,14 +15,7 @@ interface ProjectPlugProps {
   slug: string;
 }
 
-const ProjectCard = ({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-}: ProjectPlugProps) => {
+const ProjectCard = ({ title, coverImage, date, excerpt, author, slug }: ProjectPlugProps) => {
   return (
     <div>
       <div className="mb-5">
@@ -37,9 +30,7 @@ const ProjectCard = ({
         <FormattedDate dateString={date} />
       </div>
       <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-      {author && (
-        <ProjectAuthorAvatar name={author.name} picture={author.image} />
-      )}
+      {author && <ProjectAuthorAvatar name={author.name} picture={author.image} />}
     </div>
   );
 };
@@ -47,10 +38,8 @@ const ProjectCard = ({
 const ProjectGrid = ({ projects }: { projects: ProjectPost[] }) => {
   return (
     <section>
-      <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
-        More Stories
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
+      <h2 className="mb-8 text-6xl font-bold leading-tight tracking-tighter md:text-7xl">More Stories</h2>
+      <div className="mb-32 grid grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32">
         {projects.map((project) => (
           <ProjectCard
             key={project._id}

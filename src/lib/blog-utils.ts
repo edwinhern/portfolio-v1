@@ -1,4 +1,4 @@
-import { PortableTextBlock } from "@portabletext/types";
+import { PortableTextBlock } from '@portabletext/types';
 
 export const calculateReadingTime = (data: PortableTextBlock[]): string => {
   const wordsPerMinute = 200;
@@ -9,7 +9,7 @@ export const calculateReadingTime = (data: PortableTextBlock[]): string => {
 
   let totalWords = 0;
   for (const block of data) {
-    if (block._type === "block" && block.style === "normal") {
+    if (block._type === 'block' && block.style === 'normal') {
       block.children.forEach((child: any) => {
         totalWords += countWords(child.text);
       });

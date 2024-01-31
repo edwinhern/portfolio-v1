@@ -1,13 +1,13 @@
-import AboutMeSection from "@/components/portfolio/AboutMe";
-import BlogSection from "@/components/portfolio/Blog";
-import LocationSection from "@/components/portfolio/Location";
-import MobileAboutMeSection from "@/components/portfolio/MobileAboutMe";
-import ProjectsSection from "@/components/portfolio/Project";
+import AboutMeSection from '@/components/portfolio/AboutMe';
+import BlogSection from '@/components/portfolio/Blog';
+import LocationSection from '@/components/portfolio/Location';
+import MobileAboutMeSection from '@/components/portfolio/MobileAboutMe';
+import ProjectsSection from '@/components/portfolio/Project';
 
 const HomeIndexPage = () => {
   return (
     <>
-      <div className="md:animate-slideFromDownAndFade space-y-4">
+      <div className="space-y-4 md:animate-slideFromDownAndFade">
         {/* About Me */}
         <MobileAboutMeSection />
         <AboutMeSection />

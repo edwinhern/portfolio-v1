@@ -1,10 +1,10 @@
-import imageUrlBuilder from "@sanity/image-url";
+import imageUrlBuilder from '@sanity/image-url';
 
-import FormattedDate from "@/components/ui/formatted-date";
-import { client } from "@/sanity/lib/client";
-import { Author } from "@/sanity/types";
+import FormattedDate from '@/components/ui/formatted-date';
+import { client } from '@/sanity/lib/client';
+import { Author } from '@/sanity/types';
 
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 const builder = imageUrlBuilder(client);
 
@@ -24,10 +24,9 @@ export default function ContentAvatar(prop: AuthorAvatarProps) {
         </Avatar>
       </div>
       <div className="flex flex-col pt-1">
-        <div className="text-lg tracking-wide font-normal">{name}</div>
+        <div className="text-lg font-normal tracking-wide">{name}</div>
         <span className="text-sm">
-          {readTime} ·{" "}
-          <FormattedDate dateString={datePublished} dateType="short" />
+          {readTime} · <FormattedDate dateString={datePublished} dateType="short" />
         </span>
       </div>
     </div>

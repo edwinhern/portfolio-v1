@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import CarouselComponent from "@/components/ui/Carousel/Carousel";
-import CarouselCard from "@/components/ui/Carousel/CarouselCard";
-import aboutMeData from "@/data/aboutMeData";
+import CarouselComponent from '@/components/ui/Carousel/Carousel';
+import CarouselCard from '@/components/ui/Carousel/CarouselCard';
+import aboutMeData from '@/data/aboutMeData';
 
 const MobileAboutMeSection = () => {
   return (

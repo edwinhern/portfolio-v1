@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { MoveLeft } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useMemo } from "react";
+import { MoveLeft } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useMemo } from 'react';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 
 const pathMap: Record<string, string> = {
-  "/blog": "Back to Blog",
-  "/project": "Back to Projects",
-  "/": "Back to Home",
+  '/blog': 'Back to Blog',
+  '/project': 'Back to Projects',
+  '/': 'Back to Home',
 };
 
 export default function CustomNotFound() {
@@ -22,7 +22,7 @@ export default function CustomNotFound() {
         return path;
       }
     }
-    return "/";
+    return '/';
   }, [pathname]);
 
   const backLabel = pathMap[backPath];

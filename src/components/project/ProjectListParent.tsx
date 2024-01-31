@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import FeaturedProject from "@/components/project/FeaturedProject";
-import ProjectGrid from "@/components/project/ProjectGrid";
-import { ProjectPost } from "@/sanity/types";
+import FeaturedProject from '@/components/project/FeaturedProject';
+import ProjectGrid from '@/components/project/ProjectGrid';
+import { ProjectPost } from '@/sanity/types';
 
 const ProjectListParent = ({ projects }: { projects: ProjectPost[] }) => {
   if (!projects) {

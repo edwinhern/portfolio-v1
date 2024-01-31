@@ -1,17 +1,17 @@
-import { Share } from "lucide-react";
+import { Share } from 'lucide-react';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 
-import { CopyLinkButton } from "./CopyLinkButton";
-import { LinkedInShareButton } from "./LinkedInButton";
-import { TwitterShareButton } from "./TwitterShareButton";
+import { CopyLinkButton } from './CopyLinkButton';
+import { LinkedInShareButton } from './LinkedInButton';
+import { TwitterShareButton } from './TwitterShareButton';
 
 type ShareDropdownProps = { link: string; title: string };
 const ShareDropdown = ({ link, title }: ShareDropdownProps) => {
@@ -19,8 +19,8 @@ const ShareDropdown = ({ link, title }: ShareDropdownProps) => {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button size={"icon"} variant="outline">
-            <Share className="h-4 w-4" />
+          <Button size={'icon'} variant="outline">
+            <Share className="size-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-48" align="end" forceMount>

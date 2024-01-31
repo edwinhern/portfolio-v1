@@ -1,7 +1,7 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import FormattedDate from "@/components/ui/formatted-date";
-import { BlogPost } from "@/sanity/types";
+import FormattedDate from '@/components/ui/formatted-date';
+import { BlogPost } from '@/sanity/types';
 
 interface BlogPostCardProps {
   post: BlogPost;
