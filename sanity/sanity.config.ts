@@ -4,7 +4,7 @@ import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash';
 
-import { apiVersion, dataset, previewSecretId, projectId } from '@/sanity/lib/api';
+import { apiVersion, dataset, projectId } from '@/sanity/lib/api';
 import post from '@/sanity/schemas/post';
 
 import { schema } from './schemas';

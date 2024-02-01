@@ -8,7 +8,6 @@ import { client } from '@/sanity/lib/client';
 import {
   fetchAllPostsQuery,
   fetchAllProjectsQuery,
-  queryForBlogPostSlugs,
   queryForBlogPostSlugStrings,
   queryForProjectPostSlugStrings,
   queryForSingleBlogPostBySlug,
