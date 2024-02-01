@@ -1,12 +1,9 @@
 import { Metadata } from 'next';
-import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
-import LiveQuery from 'next-sanity/preview/live-query';
 
-import ProjectPostLivePreview from '@/components/content/DynamicContent';
-import ProjectSlugPage from '@/components/pages/project/[slug]';
+import { Article } from '@/components/article/Article';
+import { ArticleInitializer } from '@/components/article/context/ArticleContext';
 import { seoConfig } from '@/lib/network-utils';
-import { queryForSingleProjectPostBySlug } from '@/sanity/lib/queries';
 import { fetchProjectPostBySlug, fetchProjectPostSlugs } from '@/sanity/lib/sanityFetch';
 
 export const runtime = 'edge';
@@ -44,14 +41,8 @@ export default async function ProjectPostPage({ params }: ProjectPostPageProps) 
     return notFound();
   }
   return (
-    <LiveQuery
-      enabled={draftMode().isEnabled}
-      query={queryForSingleProjectPostBySlug}
-      params={params}
-      initialData={project}
-      as={ProjectPostLivePreview}
-    >
-      {project && <ProjectSlugPage project={project} />}
-    </LiveQuery>
+    <ArticleInitializer article={project}>
+      <Article />
+    </ArticleInitializer>
   );
 }

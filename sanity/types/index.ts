@@ -19,9 +19,7 @@ export interface BasePost {
   categories: Category[];
 }
 
-export interface BlogPost extends BasePost {
-  tags?: string[];
-}
+export interface BlogPost extends BasePost {}
 
 export interface BlogPostWithDetails extends BlogPost {
   author: Author;
@@ -42,5 +40,4 @@ export interface PostWithDetails extends BasePost {
   mainImage: Image;
   body?: PortableTextBlock[];
   excerpt?: string;
-  tags?: string[];
 }

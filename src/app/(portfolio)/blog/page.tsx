@@ -1,12 +1,8 @@
 import { Metadata } from 'next';
-import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
-import LiveQuery from 'next-sanity/preview/live-query';
 
-import BlogListLivePreview from '@/components/blog/DynamicBlogList';
-import BlogIndexPage from '@/components/pages/blog/index';
+import BlogListParent from '@/components/blog/BlogListParent';
 import { seoConfig } from '@/lib/network-utils';
-import { fetchAllPostsQuery } from '@/sanity/lib/queries';
 import { fetchAllPosts } from '@/sanity/lib/sanityFetch';
 
 export const runtime = 'edge';
@@ -29,9 +25,5 @@ export default async function BlogPostsPage() {
     return notFound();
   }
 
-  return (
-    <LiveQuery enabled={draftMode().isEnabled} query={fetchAllPostsQuery} initialData={posts} as={BlogListLivePreview}>
-      <BlogIndexPage posts={posts} />
-    </LiveQuery>
-  );
+  return <BlogListParent posts={posts} />;
 }
