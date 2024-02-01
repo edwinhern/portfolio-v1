@@ -15,7 +15,7 @@ jobs:
       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
       SANITY_API_READ_TOKEN: ${{ secrets.SANITY_API_READ_TOKEN }}
       SKIP_ENV_VALIDATION: true
-    
+
     steps:
       - name: Checkout Repository
       - uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
           path: .next/analyze/__bundle_analysis.json
 
       - name: Download Base Branch Bundle Analysis
-        if: github.event_name == 'pull_request'
+        if: success() && github.event.number
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.workflow }}
@@ -60,8 +60,8 @@ jobs:
           path: .next/analyze/base
 
       - name: Compare with Base Branch Bundle
-        if: github.event_name == 'pull_request'
-        run: npx -p nextjs-bundle-analysis compare
+        if: success() && github.event.number
+        run: ls -laR .next/analyze/base && npx -p nextjs-bundle-analysis compare
 
       - name: Get comment body
         id: get-comment-body
@@ -88,4 +88,3 @@ jobs:
               repo: context.repo.repo,
               body: commentBody
             });
-
