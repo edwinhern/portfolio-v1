@@ -2,17 +2,9 @@ name: 'Next.js Bundle Analysis'
 
 on:
   push:
-    branches:
-      - develop
+    branches: [develop]
   pull_request:
-    branches:
-      - develop
-  workflow_dispatch:
-
-defaults:
-  run:
-    # change this if your nextjs app does not live at the root of the repo
-    working-directory: ./
+    branches: [develop]
 
 jobs:
   analyze:
