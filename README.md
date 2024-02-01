@@ -1,6 +1,6 @@
-[![Code Review](https://github.com/edwinhern/portfolio/actions/workflows/cr.yml/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/cr.yml)
-[![CodeQL](https://github.com/edwinhern/portfolio/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/github-code-scanning/codeql)
-[![Next.js Bundle Analysis](https://github.com/edwinhern/portfolio/actions/workflows/nextjs_bundle_analysis.yml/badge.svg)](https://github.com/edwinhern/portfolio/actions/workflows/nextjs_bundle_analysis.yml)
+[![Build Next.js Application](https://github.com/edwinhern/portfolio/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/edwinhern/portfolio/actions/workflows/build.yml)
+[![CodeQL](https://github.com/edwinhern/portfolio/actions/workflows/github-code-scanning/codeql/badge.svg?branch=develop)](https://github.com/edwinhern/portfolio/actions/workflows/github-code-scanning/codeql)
+[![Next.js Bundle Analysis](https://github.com/edwinhern/portfolio/actions/workflows/nextjs_bundle_analysis.yml/badge.svg?branch=develop)](https://github.com/edwinhern/portfolio/actions/workflows/nextjs_bundle_analysis.yml)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
