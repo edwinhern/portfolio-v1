@@ -1,6 +1,6 @@
 import { defineType } from 'sanity';
 
-import { imageField, slugField, stringField } from './commonFields';
+import { imageField, stringField } from './commonFields';
 
 export default defineType({
   name: 'author',
