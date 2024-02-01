@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "prettier": "prettier --check .",
+    "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,yml,css}\"",
     "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,yml,css}\"",
     "analyze": "ANALYZE=true npm run build",
     "prepare": "husky install"
@@ -67,7 +67,8 @@
     "typescript": "^5"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx}": ["npm run lint:fix", "npm run prettier:fix"]
+    "**/*.{js,jsx,ts,tsx}": "eslint --fix",
+    "**/*.{json,yml,css}": "prettier --write"
   },
   "author": "Edwin Hernandez",
   "repository": "edwinhern/portfolio",
