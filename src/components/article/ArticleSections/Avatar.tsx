@@ -17,7 +17,7 @@ export const ArticleAvatar = () => {
 
   return (
     <div className="flex items-center gap-4">
-      <Avatar>
+      <Avatar className="mt-0.5">
         <AvatarImage src={builder.image(author.image).url()} alt={author.name} />
         <AvatarFallback>EH</AvatarFallback>
       </Avatar>
