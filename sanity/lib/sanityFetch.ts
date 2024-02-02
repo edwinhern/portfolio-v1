@@ -67,7 +67,7 @@ export function fetchBlogPostSlugs(): Promise<SlugsArray> {
 }
 
 export function fetchAllProjects() {
-  return sanityFetch<IArticleBase[]>({
+  return sanityFetch<IArticle[]>({
     query: fetchAllProjectsQuery,
     tags: ['project'],
   });
