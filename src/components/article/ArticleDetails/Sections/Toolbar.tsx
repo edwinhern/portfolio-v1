@@ -1,18 +1,17 @@
 import Link from 'next/link';
 
 import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
+import { useArticleType } from '@/components/article/ArticleDetails/hooks/';
 import { ShareDropdown } from '@/components/article/ArticleDetails/Share/Dropdown';
-import { useContentContext } from '@/contexts/ContentContext';
 import { baseUrl } from '@/lib/network-utils';
 
 export const ArticleToolbar = () => {
   const { article } = useArticleDetailsStore();
-  const { contentType, contentTypes } = useContentContext();
-  const contentTypeData = contentTypes[contentType];
-  const backLinkHref = contentTypeData.href;
-  const backLinkName = contentTypeData.name;
+  const contentData = useArticleType();
+  const backLinkHref = contentData.href;
+  const backLinkName = contentData.name;
 
-  const link = `${baseUrl}/${contentType}/${article?.slug}`;
+  const link = `${baseUrl}/${backLinkName}/${article?.slug}`;
 
   return (
     <div className="flex items-center justify-between">
