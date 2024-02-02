@@ -1,4 +1,4 @@
-import { Cpu, Home, LibraryBig, UserSquare2 } from 'lucide-react';
+import { Bot, Cpu, Home, LibraryBig, UserSquare2 } from 'lucide-react';
 
 const ICON_SIZE = 18;
 
@@ -28,6 +28,12 @@ export const CONSTANTS = {
       href: '/contact',
       icon: <UserSquare2 size={ICON_SIZE} />,
       comingSoon: true,
+    },
+    {
+      title: 'Admin',
+      description: 'Admin panel for managing projects, blogs, and other content.',
+      href: '/admin',
+      icon: <Bot size={ICON_SIZE} />,
     },
   ],
 
