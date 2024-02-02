@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ArticleListCard } from '@/components/article/ArticleList/ArticleListCard';
 import { useArticleListStore } from '@/components/article/ArticleList/context';
 import { MultiSelect } from '@/components/ui/multi-select';
-import { IArticleBase } from '@/sanity/types/test';
+import { IArticleBase } from '@/sanity/types';
 
 interface ArticleListInitializerProps {
   articles: IArticleBase[];

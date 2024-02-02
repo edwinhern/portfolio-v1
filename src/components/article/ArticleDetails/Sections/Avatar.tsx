@@ -6,7 +6,7 @@ import { calculateReadingTime } from '@/components/article/ArticleDetails/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import FormattedDate from '@/components/ui/formatted-date';
 import { client } from '@/sanity/lib/client';
-import { IArticle } from '@/sanity/types/test';
+import { IArticle } from '@/sanity/types';
 
 const builder = imageUrlBuilder(client);
 

@@ -13,7 +13,7 @@ import {
   queryForSingleBlogPostBySlug,
   queryForSingleProjectPostBySlug,
 } from '@/sanity/lib/queries';
-import { BlogPost, BlogPostWithDetails, ProjectPost, SlugsArray } from '@/sanity/types';
+import { IArticle, IArticleBase, SlugsArray } from '@/sanity/types';
 
 const DEFAULT_PARAMS = {} as QueryParams;
 const DEFAULT_TAGS = [] as string[];
@@ -47,16 +47,16 @@ export async function sanityFetch<QueryResponse>({
   });
 }
 
-export function fetchBlogPostBySlug(slug: string): Promise<BlogPostWithDetails | null> {
-  return sanityFetch<BlogPostWithDetails | null>({
+export function fetchBlogPostBySlug(slug: string): Promise<IArticle | null> {
+  return sanityFetch<IArticle | null>({
     query: queryForSingleBlogPostBySlug,
     params: { slug },
     tags: [`page:${slug}`],
   });
 }
 
-export function fetchAllPosts(): Promise<BlogPost[]> {
-  return sanityFetch<BlogPost[]>({
+export function fetchAllPosts(): Promise<IArticleBase[]> {
+  return sanityFetch<IArticleBase[]>({
     query: fetchAllPostsQuery,
     tags: ['post'],
   });
@@ -67,14 +67,14 @@ export function fetchBlogPostSlugs(): Promise<SlugsArray> {
 }
 
 export function fetchAllProjects() {
-  return sanityFetch<ProjectPost[]>({
+  return sanityFetch<IArticleBase[]>({
     query: fetchAllProjectsQuery,
     tags: ['project'],
   });
 }
 
-export function fetchProjectPostBySlug(slug: string): Promise<ProjectPost | null> {
-  return sanityFetch<ProjectPost | null>({
+export function fetchProjectPostBySlug(slug: string): Promise<IArticle | null> {
+  return sanityFetch<IArticle | null>({
     query: queryForSingleProjectPostBySlug,
     params: { slug },
     tags: [`page:${slug}`],

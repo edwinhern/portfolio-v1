@@ -4,14 +4,14 @@ import { Image } from 'sanity';
 import ProjectAuthorAvatar from '@/components/project/ProjectAuthorAvatar';
 import CoverImage from '@/components/project/ProjectCoverImage';
 import FormattedDate from '@/components/ui/formatted-date';
-import { Author, ProjectPost } from '@/sanity/types';
+import { IArticle, IAuthor } from '@/sanity/types';
 
 interface ProjectPlugProps {
   title: string;
   coverImage: Image;
   date: string;
   excerpt: string;
-  author: Author;
+  author: IAuthor;
   slug: string;
 }
 
@@ -35,7 +35,7 @@ const ProjectCard = ({ title, coverImage, date, excerpt, author, slug }: Project
   );
 };
 
-const ProjectGrid = ({ projects }: { projects: ProjectPost[] }) => {
+const ProjectGrid = ({ projects }: { projects: IArticle[] }) => {
   return (
     <section>
       <h2 className="mb-8 text-6xl font-bold leading-tight tracking-tighter md:text-7xl">More Stories</h2>
@@ -48,7 +48,7 @@ const ProjectGrid = ({ projects }: { projects: ProjectPost[] }) => {
             date={project.publishedAt}
             author={project.author}
             slug={project.slug}
-            excerpt={project.excerpt}
+            excerpt={project.excerpt as string}
           />
         ))}
       </div>

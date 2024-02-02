@@ -4,14 +4,14 @@ import { Image } from 'sanity';
 import ProjectAuthorAvatar from '@/components/project/ProjectAuthorAvatar';
 import CoverImage from '@/components/project/ProjectCoverImage';
 import FormattedDate from '@/components/ui/formatted-date';
-import { Author } from '@/sanity/types';
+import { IAuthor } from '@/sanity/types';
 
 interface FeaturedProjectProps {
   title: string;
   coverImage: Image;
   date: string;
   excerpt: string;
-  author: Author;
+  author: IAuthor;
   slug: string;
 }
 

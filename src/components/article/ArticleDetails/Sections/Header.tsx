@@ -1,6 +1,6 @@
 import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
 import { ArticleAvatar, ArticleMainImage } from '@/components/article/ArticleDetails/Sections/';
-import { IArticle } from '@/sanity/types/test';
+import { IArticle } from '@/sanity/types';
 
 export const ArticleHeader = () => {
   const { article } = useArticleDetailsStore();

@@ -2,7 +2,7 @@
 
 import { create } from 'zustand';
 
-import { IArticle } from '@/sanity/types/test';
+import { IArticle } from '@/sanity/types';
 
 type IArticleDetailsStore = {
   article: IArticle | null;

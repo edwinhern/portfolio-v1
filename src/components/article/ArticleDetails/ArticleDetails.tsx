@@ -7,7 +7,7 @@ import { ArticleHeader, ArticleToolbar } from '@/components/article/ArticleDetai
 import { BackToTopButton } from '@/components/ui/back-to-top-button';
 import { Separator } from '@/components/ui/separator';
 import RichTextComponent from '@/sanity/components';
-import { IArticle } from '@/sanity/types/test';
+import { IArticle } from '@/sanity/types';
 
 interface ArticleDetailsInitializerProps {
   article: IArticle;

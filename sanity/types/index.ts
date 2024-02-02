@@ -1,43 +1,31 @@
 import type { PortableTextBlock } from '@portabletext/types';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import type { Image } from 'sanity';
 
-export interface Author {
+export type SlugsArray = string[];
+
+export interface IAuthor {
   name: string;
-  image: Image;
+  image: SanityImageSource;
   slug?: string;
 }
 
-export interface Category {
+export interface ICategory {
   title: string;
 }
 
-export interface BasePost {
+export interface IArticleBase {
   _id: string;
   title: string;
   slug: string;
   publishedAt: string;
-  categories: Category[];
+  categories: ICategory[];
 }
 
-export interface BlogPost extends BasePost {}
-
-export interface BlogPostWithDetails extends BlogPost {
-  author: Author;
+export interface IArticle extends IArticleBase {
+  author: IAuthor;
   mainImage: Image;
-  body: PortableTextBlock[];
-}
-
-export type SlugsArray = string[];
-
-export interface ProjectPost extends BasePost {
-  author: Author;
-  mainImage: Image;
-  excerpt: string;
-}
-
-export interface PostWithDetails extends BasePost {
-  author: Author;
-  mainImage: Image;
-  body?: PortableTextBlock[];
   excerpt?: string;
+  body?: PortableTextBlock[];
+  tags?: string[];
 }

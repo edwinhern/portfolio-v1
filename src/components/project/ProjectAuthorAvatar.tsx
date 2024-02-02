@@ -1,11 +1,11 @@
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import Image from 'next/image';
-import type { Image as SanityImage } from 'sanity';
 
 import { urlForImage } from '@/sanity/lib/image';
 
 interface ProjectAuthorAvatarProps {
   name: string;
-  picture: SanityImage;
+  picture: SanityImageSource;
 }
 
 const ProjectAuthorAvatar = ({ name, picture }: ProjectAuthorAvatarProps) => {

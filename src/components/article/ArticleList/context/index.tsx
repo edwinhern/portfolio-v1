@@ -2,7 +2,7 @@
 
 import { create } from 'zustand';
 
-import { IArticleBase } from '@/sanity/types/test';
+import { IArticleBase } from '@/sanity/types';
 
 type IArticleListStore = {
   articles: IArticleBase[];

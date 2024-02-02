@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { useArticleListStore } from '@/components/article/ArticleList/context';
 import FormattedDate from '@/components/ui/formatted-date';
-import { IArticleBase } from '@/sanity/types/test';
+import { IArticleBase } from '@/sanity/types';
 
 export const ArticleListCard = () => {
   const { filteredArticles } = useArticleListStore();
