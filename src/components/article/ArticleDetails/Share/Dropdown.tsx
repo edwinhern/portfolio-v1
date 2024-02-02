@@ -1,5 +1,8 @@
 import { Share } from 'lucide-react';
 
+import { CopyLink } from '@/components/article/ArticleDetails/Share/CopyLink';
+import { ShareOnLinkedIn } from '@/components/article/ArticleDetails/Share/LinkedIn';
+import { ShareOnTwitter } from '@/components/article/ArticleDetails/Share/Twitter';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -8,10 +11,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-
-import { CopyLink } from './CopyLink';
-import { ShareOnLinkedIn } from './LinkedIn';
-import { ShareOnTwitter } from './Twitter';
 
 interface ShareDropdownProps {
   link: string;

@@ -1,7 +1,7 @@
 import imageUrlBuilder from '@sanity/image-url';
 import Image from 'next/image';
 
-import { useArticleStore } from '@/components/article/context/ArticleContext';
+import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
 import { Separator } from '@/components/ui/separator';
 import { client } from '@/sanity/lib/client';
 import { IArticle } from '@/sanity/types/test';
@@ -14,7 +14,7 @@ function buildImageUrl(image: any, width: number, height: number): string | null
 }
 
 export const ArticleMainImage = () => {
-  const { article } = useArticleStore();
+  const { article } = useArticleDetailsStore();
   const { mainImage } = article as IArticle;
   return (
     <>

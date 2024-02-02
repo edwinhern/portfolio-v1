@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
-import { useArticleStore } from '@/components/article/context/ArticleContext';
-import { ShareDropdown } from '@/components/article/Share/Dropdown';
+import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
+import { ShareDropdown } from '@/components/article/ArticleDetails/Share/Dropdown';
 import { useContentContext } from '@/contexts/ContentContext';
 import { baseUrl } from '@/lib/network-utils';
 
 export const ArticleToolbar = () => {
-  const { article } = useArticleStore();
+  const { article } = useArticleDetailsStore();
   const { contentType, contentTypes } = useContentContext();
   const contentTypeData = contentTypes[contentType];
   const backLinkHref = contentTypeData.href;

@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { Article } from '@/components/article/Article';
-import { ArticleInitializer } from '@/components/article/context/ArticleContext';
+import { ArticleDetailsInitializer } from '@/components/article/ArticleDetails/ArticleDetails';
 import { seoConfig } from '@/lib/network-utils';
 import { fetchBlogPostBySlug, fetchBlogPostSlugs } from '@/sanity/lib/sanityFetch';
 
@@ -40,9 +39,5 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     return notFound();
   }
 
-  return (
-    <ArticleInitializer article={post}>
-      <Article />
-    </ArticleInitializer>
-  );
+  return <ArticleDetailsInitializer article={post} />;
 }

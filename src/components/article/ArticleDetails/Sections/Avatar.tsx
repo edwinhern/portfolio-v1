@@ -1,8 +1,8 @@
 import { PortableTextBlock } from '@portabletext/types';
 import imageUrlBuilder from '@sanity/image-url';
 
-import { useArticleStore } from '@/components/article/context/ArticleContext';
-import { calculateReadingTime } from '@/components/article/utils';
+import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
+import { calculateReadingTime } from '@/components/article/ArticleDetails/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import FormattedDate from '@/components/ui/formatted-date';
 import { client } from '@/sanity/lib/client';
@@ -11,7 +11,7 @@ import { IArticle } from '@/sanity/types/test';
 const builder = imageUrlBuilder(client);
 
 export const ArticleAvatar = () => {
-  const { article } = useArticleStore();
+  const { article } = useArticleDetailsStore();
   const { body, publishedAt, author } = article as IArticle;
   const readTime = calculateReadingTime(body as PortableTextBlock[]);
 

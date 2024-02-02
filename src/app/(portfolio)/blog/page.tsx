@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import BlogListParent from '@/components/blog/BlogListParent';
+import { ArticleListInitializer } from '@/components/article/ArticleList/ArticleList';
 import { seoConfig } from '@/lib/network-utils';
 import { fetchAllPosts } from '@/sanity/lib/sanityFetch';
 
@@ -25,5 +25,5 @@ export default async function BlogPostsPage() {
     return notFound();
   }
 
-  return <BlogListParent posts={posts} />;
+  return <ArticleListInitializer articles={posts} />;
 }

@@ -2,16 +2,23 @@
 
 import { PortableText } from '@portabletext/react';
 
-import { ArticleHeader } from '@/components/article/ArticleSections/Header';
-import { ArticleToolbar } from '@/components/article/ArticleSections/Toolbar';
-import { useArticleStore } from '@/components/article/context/ArticleContext';
+import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
+import { ArticleHeader, ArticleToolbar } from '@/components/article/ArticleDetails/Sections/';
 import { BackToTopButton } from '@/components/ui/back-to-top-button';
 import { Separator } from '@/components/ui/separator';
 import RichTextComponent from '@/sanity/components';
 import { IArticle } from '@/sanity/types/test';
 
+interface ArticleDetailsInitializerProps {
+  article: IArticle;
+}
+export const ArticleDetailsInitializer: React.FC<ArticleDetailsInitializerProps> = ({ article }) => {
+  useArticleDetailsStore.setState({ article });
+  return <Article />;
+};
+
 export const Article = () => {
-  const { article } = useArticleStore();
+  const { article } = useArticleDetailsStore();
   const { body } = article as IArticle;
 
   return (
