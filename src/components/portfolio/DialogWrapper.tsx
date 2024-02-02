@@ -7,9 +7,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { ChildProp } from '@/types/common';
 
-interface DialogWrapperProps extends ChildProp {
+interface DialogWrapperProps extends ChildProps {
   dialogTitle: string;
   dialogDescription: string;
 }
