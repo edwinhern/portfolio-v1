@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { NavigationMenu } from '@/components/Layout/NavigationMenu';
+import { NavigationMenu } from '@/components/Layout/Navbar/NavigationMenu';
 import { ThemeToggleButton } from '@/components/ui/theme-toggle-button';
 
 const Navbar = () => {
