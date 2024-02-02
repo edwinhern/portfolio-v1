@@ -1,5 +1,5 @@
-import { MaxWidthWrapper } from '@/components/Layout/MaxWidthWrapper';
-import Navbar from '@/components/Layout/Navbar/Navbar';
+import { MaxWidthWrapper } from '@/components/layout/MaxWidthWrapper';
+import Navbar from '@/components/layout/Navbar/Navbar';
 
 export const AppLayout: React.FC<ChildProps> = ({ children }) => {
   return (

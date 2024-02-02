@@ -4,17 +4,20 @@ import { usePathname } from 'next/navigation';
 
 interface IContentTypeDetails {
   href: string;
-  name: string;
+  label: string;
+  urlTag: string;
 }
 
 const articleTypes: Record<string, IContentTypeDetails> = {
   blog: {
     href: '/blog',
-    name: 'posts',
+    label: 'posts',
+    urlTag: 'blog',
   },
   project: {
     href: '/project',
-    name: 'projects',
+    label: 'projects',
+    urlTag: 'project',
   },
 };
 

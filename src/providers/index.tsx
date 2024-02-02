@@ -2,7 +2,7 @@
 
 import { Analytics } from '@vercel/analytics/react';
 
-import { AppLayout } from '@/components/Layout/AppLayout';
+import { AppLayout } from '@/components/layout/AppLayout';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 
