@@ -5,7 +5,7 @@ import BlogSection from '@/components/portfolio/Blog';
 import LocationSection from '@/components/portfolio/Location';
 import MobileAboutMeSection from '@/components/portfolio/MobileAboutMe';
 import ProjectsSection from '@/components/portfolio/Project';
-import { seoConfig } from '@/lib/network-utils';
+import { seoConfig } from '@/lib/networkUtils';
 
 export const metadata: Metadata = seoConfig;
 

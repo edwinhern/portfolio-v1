@@ -3,12 +3,18 @@ import 'react-multi-carousel/lib/styles.css';
 import dynamic from 'next/dynamic';
 
 import CarouselLoadingPlaceholder from '@/components/ui/Carousel/CarouselLoadingPlaceholder';
-import responsiveData from '@/data/responsiveData';
 
 const Carousel = dynamic(() => import('react-multi-carousel'), {
   loading: () => <CarouselLoadingPlaceholder />,
   ssr: false,
 });
+
+const responsiveData = {
+  mobile: {
+    breakpoint: { max: 1000, min: 0 },
+    items: 1,
+  },
+};
 
 const CarouselComponent: React.FC<ChildProps> = ({ children }) => {
   return (

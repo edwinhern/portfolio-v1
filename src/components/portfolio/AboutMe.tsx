@@ -4,17 +4,19 @@ import Image from 'next/image';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
-import aboutMeData from '@/data/aboutMeData';
+import { CONSTANTS } from '@/lib/appConstants';
 
 const AboutMeSection = () => {
   const { toast } = useToast();
+  const aboutMeDetails = CONSTANTS.PORTFOLIO.ABOUT_ME;
 
   function handleCardClick() {
     toast({ title: `coming soon!` });
   }
+
   return (
     <div className="hidden grid-cols-1 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4">
-      {aboutMeData.map((item) => (
+      {aboutMeDetails.map((item) => (
         <Card key={item.title} className="cardAnimation" onClick={handleCardClick}>
           <Image
             draggable={false}

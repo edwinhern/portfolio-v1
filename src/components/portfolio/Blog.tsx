@@ -2,10 +2,10 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
-import blogData from '@/data/blogData';
+import { CONSTANTS } from '@/lib/appConstants';
 
 const BlogSection = () => {
-  const { contact, blogs } = blogData;
+  const { contact, blogs } = CONSTANTS.PORTFOLIO.BLOG;
   const { toast } = useToast();
 
   function handleCardClick() {

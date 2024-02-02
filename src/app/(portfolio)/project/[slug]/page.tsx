@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { ArticleDetailsInitializer } from '@/components/article/ArticleDetails/ArticleDetails';
-import { seoConfig } from '@/lib/network-utils';
+import { seoConfig } from '@/lib/networkUtils';
 import { fetchProjectPostBySlug, fetchProjectPostSlugs } from '@/sanity/lib/sanityFetch';
 
 export const runtime = 'edge';

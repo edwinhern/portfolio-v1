@@ -5,10 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useToast } from '@/components/ui/use-toast';
-import navigationData from '@/data/navigationData';
+import { CONSTANTS } from '@/lib/appConstants';
 import { cn } from '@/lib/utils';
 
 export function NavigationMenu() {
+  const navigationDetails = CONSTANTS.NAVIGATION;
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -18,7 +20,7 @@ export function NavigationMenu() {
       </SheetTrigger>
       <SheetContent>
         <ul className="mt-12 grid w-full gap-4">
-          {navigationData.map((item) => (
+          {navigationDetails.map((item) => (
             <ListItem
               key={item.href}
               href={item.href}

@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { useToast } from '@/components/ui/use-toast';
-import { DATE_FORMAT, formatDateTime } from '@/lib/date-utils';
+import { DATE_FORMAT, formatDateTime } from '@/lib/dateUtils';
 
 interface CopyLinkProps {
   link: string;

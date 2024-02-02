@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
 import { useArticleType } from '@/components/article/ArticleDetails/hooks/';
 import { ShareDropdown } from '@/components/article/ArticleDetails/Share/Dropdown';
-import { baseUrl } from '@/lib/network-utils';
+import { baseUrl } from '@/lib/networkUtils';
 
 export const ArticleToolbar = () => {
   const { article } = useArticleDetailsStore();
