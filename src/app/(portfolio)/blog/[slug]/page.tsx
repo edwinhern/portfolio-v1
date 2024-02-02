@@ -1,12 +1,8 @@
 import { Metadata } from 'next';
-import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
-import LiveQuery from 'next-sanity/preview/live-query';
 
-import BlogPostLivePreview from '@/components/content/DynamicContent';
-import BlogSlugPage from '@/components/pages/blog/[slug]';
-import { seoConfig } from '@/lib/network-utils';
-import { queryForSingleBlogPostBySlug } from '@/sanity/lib/queries';
+import { ArticleDetailsInitializer } from '@/components/article/ArticleDetails/ArticleDetails';
+import { seoConfig } from '@/lib/networkUtils';
 import { fetchBlogPostBySlug, fetchBlogPostSlugs } from '@/sanity/lib/sanityFetch';
 
 export const runtime = 'edge';
@@ -39,20 +35,9 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await fetchBlogPostBySlug(params.slug);
-
   if (!post) {
     return notFound();
   }
 
-  return (
-    <LiveQuery
-      enabled={draftMode().isEnabled}
-      query={queryForSingleBlogPostBySlug}
-      params={params}
-      initialData={post}
-      as={BlogPostLivePreview}
-    >
-      {post && <BlogSlugPage post={post} />}
-    </LiveQuery>
-  );
+  return <ArticleDetailsInitializer article={post} />;
 }

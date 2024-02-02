@@ -5,9 +5,8 @@ import { Analytics } from '@vercel/analytics/react';
 import { AppLayout } from '@/components/Layout/AppLayout';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/providers/ThemeProvider';
-import { ChildProp } from '@/types/common';
 
-export const Providers: React.FC<ChildProp> = ({ children }) => {
+export const Providers: React.FC<ChildProps> = ({ children }) => {
   return (
     <>
       <ThemeProvider>

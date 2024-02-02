@@ -6,5 +6,5 @@ interface MaxWidthWrapperProps {
 }
 
 export const MaxWidthWrapper = ({ className, children }: MaxWidthWrapperProps) => {
-  return <div className={cn('container w-full max-w-screen-xl lg:px-12', className)}>{children}</div>;
+  return <div className={cn('container w-full max-w-screen-xl', className)}>{children}</div>;
 };
