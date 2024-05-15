@@ -44,7 +44,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "rimraf": "^5.0.7",
     "sanity": "^3.18.1",
-    "sanity-plugin-asset-source-unsplash": "^1.1.2",
+    "sanity-plugin-asset-source-unsplash": "^3.0.0",
     "server-only": "^0.0.1",
     "styled-components": "^6.1.11",
     "suspend-react": "^0.1.3",
