@@ -4,6 +4,18 @@ FROM node:20-alpine AS builder
 # Set the working directory in the Docker container
 WORKDIR /app
 
+# Define build arguments
+ARG NEXT_PUBLIC_VERCEL_URL
+ARG NEXT_PUBLIC_SANITY_PROJECT_ID
+ARG NEXT_PUBLIC_SANITY_DATASET
+ARG SANITY_API_READ_TOKEN
+
+# Set environment variables
+ENV NEXT_PUBLIC_VERCEL_URL=$NEXT_PUBLIC_VERCEL_URL
+ENV NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID
+ENV NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET
+ENV SANITY_API_READ_TOKEN=$SANITY_API_READ_TOKEN
+
 # Copy the package.json and package-lock.json (or yarn.lock) files
 COPY package*.json ./
 
