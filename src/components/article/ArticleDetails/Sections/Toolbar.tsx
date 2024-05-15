@@ -3,13 +3,12 @@ import Link from 'next/link';
 import { ShareDropdown } from '@/components/article/ArticleDetails/Share/Dropdown';
 import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
 import { useArticleType } from '@/components/article/ArticleDetails/hooks/';
-import { baseUrl } from '@/lib/networkUtils';
 
 export const ArticleToolbar = () => {
   const { article } = useArticleDetailsStore();
   const { href = '', label = '', urlTag = '' } = useArticleType() ?? {};
 
-  const link = `${baseUrl}/${urlTag}/${article?.slug}`;
+  const link = `${process.env.NEXT_PUBLIC_VERCEL_URL}/${urlTag}/${article?.slug}`;
 
   return (
     <div className="flex items-center justify-between">
