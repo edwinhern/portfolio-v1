@@ -29,24 +29,9 @@ jobs:
             docker tag ghcr.io/${{ github.repository }}:${{ github.sha }} ghcr.io/${{ github.repository }}:latest
           fi
 
-      # Build and tag the development Docker image
-      - name: Build the development Docker image
-        run: |
-          docker build . --file Dockerfile --target dev --tag ghcr.io/${{ github.repository }}:${{ github.sha }}-dev
-          if [ "${{ github.ref }}" == "refs/heads/develop" ]; then
-            docker tag ghcr.io/${{ github.repository }}:${{ github.sha }}-dev ghcr.io/${{ github.repository }}:dev
-          fi
-
       # Push the production Docker image
       - name: Push the production Docker image
         if: github.ref == 'refs/heads/develop'
         run: |
           docker push ghcr.io/${{ github.repository }}:${{ github.sha }}
           docker push ghcr.io/${{ github.repository }}:latest
-
-      # Push the development Docker image
-      - name: Push the development Docker image
-        if: github.ref == 'refs/heads/develop'
-        run: |
-          docker push ghcr.io/${{ github.repository }}:${{ github.sha }}-dev
-          docker push ghcr.io/${{ github.repository }}:dev
