@@ -5,9 +5,9 @@ import million from 'million/compiler';
  */
 const nextConfig = {
   env: {
-    NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET || 'default_dataset',
-    NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'default_project_id',
-    SANITY_API_READ_TOKEN: process.env.SANITY_API_READ_TOKEN || 'default_read_token',
+    NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET || 'default-dataset',
+    NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'default-project-id',
+    SANITY_API_READ_TOKEN: process.env.SANITY_API_READ_TOKEN || 'default-read-token',
   },
   experimental: {
     webVitalsAttribution: ['FCP', 'LCP', 'CLS', 'FID', 'TTFB', 'INP'],
