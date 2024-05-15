@@ -1,16 +1,21 @@
 {
-  "name": "portfolio",
+  "name": "edwinhern-portfolio-v1",
   "version": "1.0.0",
+  "description": "My personal portfolio website, version 1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,yml,css}\"",
-    "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,yml,css}\"",
-    "analyze": "ANALYZE=true npm run build",
-    "prepare": "husky install"
+    "clean": "rimraf .next coverage",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:dev": "vitest dev",
+    "test:cov": "vitest run --coverage",
+    "release": "semantic-release",
+    "prepare": "husky"
   },
   "dependencies": {
     "@portabletext/react": "^3.0.11",
@@ -32,6 +37,7 @@
     "cmdk": "^0.2.1",
     "dayjs": "^1.11.10",
     "lucide-react": "^0.288.0",
+    "million": "^3.0.6",
     "next": "^14.1.0",
     "next-sanity": "^5.5.10",
     "next-themes": "^0.2.1",
@@ -39,6 +45,7 @@
     "react-dom": "^18.2.0",
     "react-multi-carousel": "^2.8.4",
     "react-syntax-highlighter": "^15.5.0",
+    "rimraf": "^5.0.7",
     "sanity": "^3.18.1",
     "sanity-plugin-asset-source-unsplash": "^1.1.2",
     "server-only": "^0.0.1",
@@ -49,8 +56,12 @@
     "zustand": "^4.5.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.1.0",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@portabletext/types": "^2.0.8",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "github:semantic-release/git",
+    "@semantic-release/github": "^10.0.3",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -60,8 +71,8 @@
     "eslint": "^8",
     "eslint-config-next": "^14.0.3",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-perfectionist": "^2.10.0",
     "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tailwindcss": "^3.14.1",
     "husky": "^8.0.0",
     "lint-staged": "^15.2.1",
@@ -72,10 +83,8 @@
     "typescript": "^5"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": "eslint --fix",
-    "**/*.{json,yml,css}": "prettier --write"
+    "**/*": "npm run format",
+    "**/*.{ts,tsx}": "eslint --fix"
   },
-  "author": "Edwin Hernandez",
-  "repository": "edwinhern/portfolio",
-  "license": "ISC"
+  "author": "Edwin Hernandez"
 }

@@ -1,15 +1,22 @@
-import withBundleAnalyzer from '@next/bundle-analyzer';
-
-const bundleAnalyzer = withBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
-});
+import million from 'million/compiler';
 
 /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
   reactStrictMode: true,
-  images: { remotePatterns: [{ hostname: 'cdn.sanity.io' }, { hostname: 'source.unsplash.com' }] },
+  trailingSlash: false,
+  experimental: {
+    webVitalsAttribution: ['FCP', 'LCP', 'CLS', 'FID', 'TTFB', 'INP'],
+  },
+  images: {
+    remotePatterns: [{ hostname: 'cdn.sanity.io' }, { hostname: 'source.unsplash.com' }],
+  },
 };
 
-export default bundleAnalyzer(nextConfig);
+const millionConfig = {
+  rsc: true,
+  server: true,
+};
+
+export default million.next(nextConfig, millionConfig);
