@@ -1,5 +1,6 @@
-import { PlusCircle } from 'lucide-react';
 import React, { useCallback, useEffect } from 'react';
+
+import { PlusCircle } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -19,19 +20,19 @@ import { cn } from '@/lib/utils';
 import { Checkbox } from './checkbox';
 
 interface Options {
+  icon?: React.ComponentType<{ className?: string }>;
   label: string;
   value: string;
-  icon?: React.ComponentType<{ className?: string }>;
 }
 
 interface MultiSelectProps {
-  title?: string;
+  onSelectionChange: (selected: Set<string>) => void;
   options: Options[];
   selectedValues: Set<string>;
-  onSelectionChange: (selected: Set<string>) => void;
+  title?: string;
 }
 
-const MultiSelect: React.FC<MultiSelectProps> = ({ title, options, selectedValues, onSelectionChange }) => {
+const MultiSelect: React.FC<MultiSelectProps> = ({ onSelectionChange, options, selectedValues, title }) => {
   const [selected, setSelected] = React.useState(new Set(selectedValues));
 
   const handleSelect = useCallback((value: string) => {
@@ -57,14 +58,14 @@ const MultiSelect: React.FC<MultiSelectProps> = ({ title, options, selectedValue
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="h-8 border-dashed">
+        <Button className="h-8 border-dashed" size="sm" variant="outline">
           <PlusCircle className="mr-2 size-4" />
           {title}
           {selected?.size > 0 && <SelectedBadges options={options} selected={selected} />}
         </Button>
       </PopoverTrigger>
 
-      <PopoverContent className="w-[200px] p-0" align="start">
+      <PopoverContent align="start" className="w-[200px] p-0">
         <Command>
           <CommandInput placeholder={title} />
           <CommandList>
@@ -93,7 +94,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({ title, options, selectedValue
               <>
                 <CommandSeparator />
                 <CommandGroup>
-                  <CommandItem onSelect={handleClear} className="justify-center text-center">
+                  <CommandItem className="justify-center text-center" onSelect={handleClear}>
                     Clear filters
                   </CommandItem>
                 </CommandGroup>
@@ -113,20 +114,20 @@ interface SelectedBadgesProps {
 const SelectedBadges: React.FC<SelectedBadgesProps> = ({ options, selected }) => {
   return (
     <>
-      <Separator orientation="vertical" className="mx-2 h-4" />
-      <Badge variant="default" className="rounded-sm px-1 font-medium lg:hidden">
+      <Separator className="mx-2 h-4" orientation="vertical" />
+      <Badge className="rounded-sm px-1 font-medium lg:hidden" variant="default">
         {selected.size}
       </Badge>
       <div className="hidden space-x-1 lg:flex">
         {selected.size > 2 ? (
-          <Badge variant="default" className="rounded-sm px-1 font-medium">
+          <Badge className="rounded-sm px-1 font-medium" variant="default">
             {selected.size} selected
           </Badge>
         ) : (
           options
             .filter((option) => selected.has(option.value.toLocaleLowerCase()))
             .map((option) => (
-              <Badge key={option.value} className="rounded-sm px-1 font-medium">
+              <Badge className="rounded-sm px-1 font-medium" key={option.value}>
                 {option.label}
               </Badge>
             ))

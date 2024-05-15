@@ -1,28 +1,28 @@
+import { IArticle, IAuthor } from '@/sanity/types';
 import Link from 'next/link';
 import { Image } from 'sanity';
 
 import ProjectAuthorAvatar from '@/components/project/ProjectAuthorAvatar';
 import CoverImage from '@/components/project/ProjectCoverImage';
 import FormattedDate from '@/components/ui/formatted-date';
-import { IArticle, IAuthor } from '@/sanity/types';
 
 interface ProjectPlugProps {
-  title: string;
+  author: IAuthor;
   coverImage: Image;
   date: string;
   excerpt: string;
-  author: IAuthor;
   slug: string;
+  title: string;
 }
 
-const ProjectCard = ({ title, coverImage, date, excerpt, author, slug }: ProjectPlugProps) => {
+const ProjectCard = ({ author, coverImage, date, excerpt, slug, title }: ProjectPlugProps) => {
   return (
     <div>
       <div className="mb-5">
-        <CoverImage slug={slug} title={title} image={coverImage} priority />
+        <CoverImage image={coverImage} priority slug={slug} title={title} />
       </div>
       <h3 className="mb-3 text-3xl leading-snug">
-        <Link href={`/project/${slug}`} className="hover:underline">
+        <Link className="hover:underline" href={`/project/${slug}`}>
           {title}
         </Link>
       </h3>
@@ -42,13 +42,13 @@ const ProjectGrid = ({ projects }: { projects: IArticle[] }) => {
       <div className="mb-32 grid grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32">
         {projects.map((project) => (
           <ProjectCard
-            key={project._id}
-            title={project.title}
+            author={project.author}
             coverImage={project.mainImage}
             date={project.publishedAt}
-            author={project.author}
-            slug={project.slug}
             excerpt={project.excerpt as string}
+            key={project._id}
+            slug={project.slug}
+            title={project.title}
           />
         ))}
       </div>

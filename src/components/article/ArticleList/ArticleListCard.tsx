@@ -1,8 +1,8 @@
+import { IArticleBase } from '@/sanity/types';
 import Link from 'next/link';
 
 import { useArticleListStore } from '@/components/article/ArticleList/context';
 import FormattedDate from '@/components/ui/formatted-date';
-import { IArticleBase } from '@/sanity/types';
 
 export const ArticleListCard = () => {
   const { filteredArticles } = useArticleListStore();
@@ -13,7 +13,7 @@ export const ArticleListCard = () => {
   return (
     <ul className="mt-10">
       {sortedArticles.map((article, index) => (
-        <ArticleCard key={article._id} article={article} index={index} />
+        <ArticleCard article={article} index={index} key={article._id} />
       ))}
     </ul>
   );
@@ -26,7 +26,7 @@ interface ArticleCardProps {
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
   const delay = 60 * index;
-  const { title, slug, publishedAt } = article;
+  const { publishedAt, slug, title } = article;
 
   return (
     <li className="mb-6 hover:opacity-70">

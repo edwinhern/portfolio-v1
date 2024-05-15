@@ -6,14 +6,14 @@ import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 
 const ThemeToggleButton = () => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return (
-    <Button onClick={toggleTheme} variant="outline" size="icon" aria-label="Toggle Theme" title="Toggle Theme">
+    <Button aria-label="Toggle Theme" onClick={toggleTheme} size="icon" title="Toggle Theme" variant="outline">
       {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
     </Button>
   );

@@ -5,7 +5,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { CONSTANTS } from '@/lib/appConstants';
 
 const BlogSection = () => {
-  const { contact, blogs } = CONSTANTS.PORTFOLIO.BLOG;
+  const { blogs, contact } = CONSTANTS.PORTFOLIO.BLOG;
   const { toast } = useToast();
 
   function handleCardClick() {
@@ -23,7 +23,7 @@ const BlogSection = () => {
         </CardContent>
       </Card>
 
-      <Card href={'/blog'} className="cardAnimation col-span-full md:col-span-3" role="button">
+      <Card className="cardAnimation col-span-full md:col-span-3" href={'/blog'} role="button">
         <CardHeader className="px-4">
           <CardTitle className="text-lg font-bold">{blogs.title}</CardTitle>
         </CardHeader>

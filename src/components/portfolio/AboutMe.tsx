@@ -17,15 +17,15 @@ const AboutMeSection = () => {
   return (
     <div className="hidden grid-cols-1 gap-4 md:grid md:grid-cols-2 lg:grid-cols-4">
       {aboutMeDetails.map((item) => (
-        <Card key={item.title} className="cardAnimation" onClick={handleCardClick}>
+        <Card className="cardAnimation" key={item.title} onClick={handleCardClick}>
           <Image
-            draggable={false}
-            src={item.src}
             alt={item.alt}
             className="h-48 w-full rounded-t-lg object-cover"
-            width={420}
+            draggable={false}
             height={200}
             priority
+            src={item.src}
+            width={420}
           />
           <CardHeader className="px-4">
             <CardTitle className="text-lg font-bold">{item.title}</CardTitle>

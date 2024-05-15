@@ -7,6 +7,7 @@
   ],
   "plugins": ["perfectionist"],
   "rules": {
+    "tailwindcss/no-custom-classname": "off",
     "perfectionist/sort-imports": [
       "error",
       {

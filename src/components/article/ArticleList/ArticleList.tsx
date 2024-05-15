@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useState } from 'react';
 
+import { IArticleBase } from '@/sanity/types';
+
 import { ArticleListCard } from '@/components/article/ArticleList/ArticleListCard';
 import { useArticleListStore } from '@/components/article/ArticleList/context';
 import { MultiSelect } from '@/components/ui/multi-select';
-import { IArticleBase } from '@/sanity/types';
 
 interface ArticleListInitializerProps {
   articles: IArticleBase[];
@@ -40,10 +41,10 @@ export const ArticleList = () => {
   return (
     <>
       <MultiSelect
-        title="Tag Filter"
+        onSelectionChange={handleSelectionChange}
         options={options}
         selectedValues={selectedTags}
-        onSelectionChange={handleSelectionChange}
+        title="Tag Filter"
       />
       <ArticleListCard />
     </>

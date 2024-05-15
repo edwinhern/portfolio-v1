@@ -1,18 +1,18 @@
-import cn from 'classnames';
-import Image from 'next/image';
-import Link from 'next/link';
 import type { Image as SanityImage } from 'sanity';
 
 import { urlForImage } from '@/sanity/lib/image';
+import cn from 'classnames';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface CoverImageProps {
-  title: string;
-  slug: string;
   image: SanityImage;
   priority: boolean;
+  slug: string;
+  title: string;
 }
 
-export default function CoverImage({ title, slug, image: source, priority }: CoverImageProps) {
+export default function CoverImage({ image: source, priority, slug, title }: CoverImageProps) {
   // @ts-ignore: Object is possibly 'undefined'
   const imageUrl = urlForImage(source).height(1000).width(2000).url();
 
@@ -23,23 +23,23 @@ export default function CoverImage({ title, slug, image: source, priority }: Cov
       })}
     >
       <Image
-        className="h-auto w-full rounded-lg"
-        width={2000}
-        height={1000}
         alt={`Cover Image for ${title}`}
-        src={imageUrl}
-        sizes="100vw"
+        className="h-auto w-full rounded-lg"
+        height={1000}
         priority={priority}
+        sizes="100vw"
+        src={imageUrl}
+        width={2000}
       />
     </div>
   ) : (
-    <div style={{ paddingTop: '50%', backgroundColor: '#ddd' }} />
+    <div style={{ backgroundColor: '#ddd', paddingTop: '50%' }} />
   );
 
   return (
     <div className="sm:mx-0">
       {slug ? (
-        <Link href={`/project/${slug}`} aria-label={title}>
+        <Link aria-label={title} href={`/project/${slug}`}>
           {image}
         </Link>
       ) : (

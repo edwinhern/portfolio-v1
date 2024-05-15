@@ -2,7 +2,7 @@ import { format, parseISO } from 'date-fns';
 
 interface DateProps {
   dateString: string;
-  dateType?: 'short' | 'medium' | 'long';
+  dateType?: 'long' | 'medium' | 'short';
 }
 
 export default function FormattedDate({ dateString, dateType = 'long' }: DateProps) {
@@ -10,7 +10,7 @@ export default function FormattedDate({ dateString, dateType = 'long' }: DatePro
 
   const date = parseISO(dateString);
 
-  const formatDate = (date: Date, type: 'short' | 'medium' | 'long') => {
+  const formatDate = (date: Date, type: 'long' | 'medium' | 'short') => {
     switch (type) {
       case 'short':
         // 'MMM d' format for short type (e.g., 'Jan 01')

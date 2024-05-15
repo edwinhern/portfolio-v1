@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import React from 'react';
+
+import Link from 'next/link';
 
 import { NavigationMenu } from '@/components/layout/Navbar/NavigationMenu';
 import { ThemeToggleButton } from '@/components/ui/theme-toggle-button';

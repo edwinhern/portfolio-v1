@@ -9,11 +9,11 @@ import {
 } from '@/components/ui/dialog';
 
 interface DialogWrapperProps extends ChildProps {
-  dialogTitle: string;
   dialogDescription: string;
+  dialogTitle: string;
 }
 
-const DialogWrapper: React.FC<DialogWrapperProps> = ({ children, dialogTitle, dialogDescription }) => {
+const DialogWrapper: React.FC<DialogWrapperProps> = ({ children, dialogDescription, dialogTitle }) => {
   return (
     <>
       <Dialog>

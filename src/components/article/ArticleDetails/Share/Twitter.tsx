@@ -1,14 +1,15 @@
-import { Twitter } from 'lucide-react';
 import { useCallback } from 'react';
+
+import { Twitter } from 'lucide-react';
 
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
 
 interface ShareOnTwitterProps {
-  title: string;
   link: string;
+  title: string;
 }
 
-export const ShareOnTwitter: React.FC<ShareOnTwitterProps> = ({ title, link }) => {
+export const ShareOnTwitter: React.FC<ShareOnTwitterProps> = ({ link, title }) => {
   const share = useCallback(() => {
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(
       link

@@ -1,31 +1,31 @@
+import { IAuthor } from '@/sanity/types';
 import Link from 'next/link';
 import { Image } from 'sanity';
 
 import ProjectAuthorAvatar from '@/components/project/ProjectAuthorAvatar';
 import CoverImage from '@/components/project/ProjectCoverImage';
 import FormattedDate from '@/components/ui/formatted-date';
-import { IAuthor } from '@/sanity/types';
 
 interface FeaturedProjectProps {
-  title: string;
+  author: IAuthor;
   coverImage: Image;
   date: string;
   excerpt: string;
-  author: IAuthor;
   slug: string;
+  title: string;
 }
 
-export default function FeaturedProject({ title, coverImage, date, excerpt, author, slug }: FeaturedProjectProps) {
+export default function FeaturedProject({ author, coverImage, date, excerpt, slug, title }: FeaturedProjectProps) {
   return (
     <>
       <section>
         <div className="mb-8 md:mb-16">
-          <CoverImage slug={slug} title={title} image={coverImage} priority />
+          <CoverImage image={coverImage} priority slug={slug} title={title} />
         </div>
         <div className="mb-20 md:mb-28 md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8">
           <div>
             <h3 className="mb-4 text-4xl leading-tight lg:text-6xl">
-              <Link href={`/project/${slug}`} className="hover:underline">
+              <Link className="hover:underline" href={`/project/${slug}`}>
                 {title}
               </Link>
             </h3>
