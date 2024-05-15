@@ -1,12 +1,10 @@
 import { Metadata } from 'next';
 
-export const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
-
 export const seoConfig: Metadata = {
   creator: '@edwinhern',
   description:
     'Edwin H, a proficient full-stack developer, showcases his front-end and back-end development projects and professional experience in his portfolio.',
-  metadataBase: new URL(baseUrl as string),
+  metadataBase: new URL('https://edwinhern.com'),
   openGraph: {
     description: "Explore Edwin H's projects and learn about his journey and skills as a full-stack developer.",
     images: [

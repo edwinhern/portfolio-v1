@@ -4,14 +4,19 @@ import million from 'million/compiler';
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  reactStrictMode: true,
-  trailingSlash: false,
+  env: {
+    NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET || 'default_dataset',
+    NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'default_project_id',
+    SANITY_API_READ_TOKEN: process.env.SANITY_API_READ_TOKEN || 'default_read_token',
+  },
   experimental: {
     webVitalsAttribution: ['FCP', 'LCP', 'CLS', 'FID', 'TTFB', 'INP'],
   },
   images: {
     remotePatterns: [{ hostname: 'cdn.sanity.io' }, { hostname: 'source.unsplash.com' }],
   },
+  reactStrictMode: true,
+  trailingSlash: false,
 };
 
 const millionConfig = {
