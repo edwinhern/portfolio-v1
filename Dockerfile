@@ -10,7 +10,7 @@ COPY package*.json ./
 # COPY package.json yarn.lock ./
 
 # Install dependencies
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 # For Yarn, use the following command instead
 # RUN yarn install
 
@@ -31,7 +31,7 @@ COPY package*.json ./
 COPY . .
 
 # Install dependencies (in case there are any new ones)
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 # For Yarn, use the following command instead
 # RUN yarn install
 
