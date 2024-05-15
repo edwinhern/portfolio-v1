@@ -1,40 +1,34 @@
-name: 'Build Next.js Application'
+name: Build Next.js Application
 
 on:
   push:
     branches: [develop]
   pull_request:
-    branches: [develop]
 
 jobs:
   build:
+    runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_VERCEL_URL: ${{ secrets.NEXT_PUBLIC_VERCEL_URL }}
       NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
       SANITY_API_READ_TOKEN: ${{ secrets.SANITY_API_READ_TOKEN }}
       SKIP_ENV_VALIDATION: true
-    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Read .nvmrc
-        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_ENV
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
+      - name: Use the latest stable Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 'node'
+          cache: 'npm'
 
       - name: Install Dependencies
         run: npm ci
 
-      - name: Build Next.js Application
-        run: npm run build
-
       - name: Run lint
         run: npm run lint
 
-      - name: Run Prettier
-        run: npm run prettier
+      - name: Run Build
+        run: npm run build

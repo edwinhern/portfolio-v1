@@ -1,9 +1,9 @@
+import { fetchBlogPostBySlug, fetchBlogPostSlugs } from '@/sanity/lib/sanityFetch';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { ArticleDetailsInitializer } from '@/components/article/ArticleDetails/ArticleDetails';
 import { seoConfig } from '@/lib/networkUtils';
-import { fetchBlogPostBySlug, fetchBlogPostSlugs } from '@/sanity/lib/sanityFetch';
 
 export const runtime = 'edge';
 
@@ -18,13 +18,13 @@ export async function generateMetadata({ params: { slug } }: BlogPostPageProps):
   const blogTopic = post?.categories ? post.categories.join(' ') : 'Blog Topic';
   return {
     ...seoConfig,
-    title: `Blog: ${blogTitle} - Edwin H - Portfolio`,
     description: `Read the blog post titled "${post?.title}" by Edwin H to dive into ${blogTopic}.`,
     openGraph: {
       ...seoConfig.openGraph,
-      title: `Blog: ${blogTitle} - Edwin H - Portfolio`,
       description: `Edwin H elaborates on ${blogTopic} in his blog post titled "${blogTitle}".`,
+      title: `Blog: ${blogTitle} - Edwin H - Portfolio`,
     },
+    title: `Blog: ${blogTitle} - Edwin H - Portfolio`,
   };
 }
 

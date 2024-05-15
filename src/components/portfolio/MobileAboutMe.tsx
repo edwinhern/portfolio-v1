@@ -11,11 +11,11 @@ const MobileAboutMeSection = () => {
     <CarouselComponent>
       {aboutMeDetails.map((card) => (
         <CarouselCard
+          alt={card.alt}
+          description={card.description}
           key={card.title}
           src={card.src}
-          alt={card.alt}
           title={card.title}
-          description={card.description}
         />
       ))}
     </CarouselComponent>

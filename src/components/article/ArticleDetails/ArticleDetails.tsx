@@ -1,13 +1,13 @@
 'use client';
 
-import { PortableText } from '@portabletext/react';
-
-import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
-import { ArticleHeader, ArticleToolbar } from '@/components/article/ArticleDetails/Sections/';
-import { BackToTopButton } from '@/components/ui/back-to-top-button';
-import { Separator } from '@/components/ui/separator';
 import RichTextComponent from '@/sanity/components';
 import { IArticle } from '@/sanity/types';
+import { PortableText } from '@portabletext/react';
+
+import { ArticleHeader, ArticleToolbar } from '@/components/article/ArticleDetails/Sections/';
+import { useArticleDetailsStore } from '@/components/article/ArticleDetails/context';
+import { BackToTopButton } from '@/components/ui/back-to-top-button';
+import { Separator } from '@/components/ui/separator';
 
 interface ArticleDetailsInitializerProps {
   article: IArticle;
@@ -27,7 +27,7 @@ export const Article = () => {
 
       <div className="animate-slideFromDownAndFade">
         <ArticleHeader />
-        {body && <PortableText value={body} components={RichTextComponent} />}
+        {body && <PortableText components={RichTextComponent} value={body} />}
         <Separator />
         {/* Footer */}
       </div>

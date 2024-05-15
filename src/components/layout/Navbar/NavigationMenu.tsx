@@ -1,5 +1,6 @@
-import { AlignJustify } from 'lucide-react';
 import React from 'react';
+
+import { AlignJustify } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -22,11 +23,11 @@ export function NavigationMenu() {
         <ul className="mt-12 grid w-full gap-4">
           {navigationDetails.map((item) => (
             <ListItem
-              key={item.href}
               href={item.href}
-              title={item.title}
               icon={item.icon}
               isComingSoon={item.comingSoon}
+              key={item.href}
+              title={item.title}
             >
               {item.description}
             </ListItem>
@@ -38,15 +39,15 @@ export function NavigationMenu() {
 }
 
 interface ListItemProps extends React.ComponentPropsWithoutRef<'a'> {
-  className?: string;
-  title: string;
-  isComingSoon?: boolean;
-  icon?: React.ReactNode;
   children?: React.ReactNode;
+  className?: string;
+  icon?: React.ReactNode;
+  isComingSoon?: boolean;
+  title: string;
 }
 
 const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
-  ({ className, title, icon, children, isComingSoon, ...props }, ref) => {
+  ({ children, className, icon, isComingSoon, title, ...props }, ref) => {
     const { toast } = useToast();
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -60,15 +61,15 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
       <li>
         <Card>
           <a
-            ref={ref}
-            onClick={handleClick}
             className={cn(
               'block select-none space-y-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
               className
             )}
+            onClick={handleClick}
+            ref={ref}
             {...props}
           >
-            <div className="text-md flex items-center gap-2 font-medium leading-none">
+            <div className="flex items-center gap-2 text-base font-medium leading-none">
               {icon}
               {title}
             </div>

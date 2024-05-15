@@ -25,12 +25,12 @@ export const ShareDropdown = ({ link, title }: ShareDropdownProps) => {
           <Share className="size-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-48" align="end" forceMount>
+      <DropdownMenuContent align="end" className="w-48" forceMount>
         <DropdownMenuGroup>
           <CopyLink link={link} />
           <DropdownMenuSeparator />
-          <ShareOnTwitter title={title} link={link} />
-          <ShareOnLinkedIn title={title} link={link} />
+          <ShareOnTwitter link={link} title={title} />
+          <ShareOnLinkedIn link={link} title={title} />
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

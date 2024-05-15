@@ -1,8 +1,7 @@
 'use client';
 
-import { create } from 'zustand';
-
 import { IArticleBase } from '@/sanity/types';
+import { create } from 'zustand';
 
 type IArticleListStore = {
   articles: IArticleBase[];

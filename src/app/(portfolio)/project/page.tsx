@@ -1,7 +1,7 @@
+import { fetchAllProjects } from '@/sanity/lib/sanityFetch';
 import { notFound } from 'next/navigation';
 
 import ProjectListParent from '@/components/project/ProjectListParent';
-import { fetchAllProjects } from '@/sanity/lib/sanityFetch';
 
 export const runtime = 'edge';
 

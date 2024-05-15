@@ -1,5 +1,6 @@
-import { Link } from 'lucide-react';
 import { useCallback } from 'react';
+
+import { Link } from 'lucide-react';
 
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { useToast } from '@/components/ui/use-toast';
@@ -17,7 +18,7 @@ export const CopyLink: React.FC<CopyLinkProps> = ({ link }) => {
     const formattedDate = formatDateTime(date, DATE_FORMAT.FULL_DATE_TIME);
     // Copy the link to the user's clipboard
     navigator.clipboard.writeText(link);
-    toast({ title: 'Link copied', description: formattedDate });
+    toast({ description: formattedDate, title: 'Link copied' });
   }, [link, toast]);
 
   return (

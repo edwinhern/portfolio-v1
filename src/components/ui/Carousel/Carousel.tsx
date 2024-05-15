@@ -1,8 +1,10 @@
-import 'react-multi-carousel/lib/styles.css';
+import type { PropsWithChildren } from 'react';
 
 import dynamic from 'next/dynamic';
 
 import CarouselLoadingPlaceholder from '@/components/ui/Carousel/CarouselLoadingPlaceholder';
+
+import 'react-multi-carousel/lib/styles.css';
 
 const Carousel = dynamic(() => import('react-multi-carousel'), {
   loading: () => <CarouselLoadingPlaceholder />,
@@ -16,10 +18,10 @@ const responsiveData = {
   },
 };
 
-const CarouselComponent: React.FC<ChildProps> = ({ children }) => {
+const CarouselComponent: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="flex flex-col gap-4 md:hidden">
-      <Carousel ssr responsive={responsiveData} swipeable={false}>
+      <Carousel responsive={responsiveData} ssr swipeable={false}>
         {children}
       </Carousel>
     </div>

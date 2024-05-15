@@ -1,7 +1,6 @@
+import { urlForImage } from '@/sanity/lib/image';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import Image from 'next/image';
-
-import { urlForImage } from '@/sanity/lib/image';
 
 interface ProjectAuthorAvatarProps {
   name: string;
@@ -15,7 +14,7 @@ const ProjectAuthorAvatar = ({ name, picture }: ProjectAuthorAvatarProps) => {
   return (
     <div className="flex items-center">
       <div className="relative mr-4 size-12">
-        <Image src={imageUrl} className="rounded-full" height={96} width={96} alt={name} />
+        <Image alt={name} className="rounded-full" height={96} src={imageUrl} width={96} />
       </div>
       <div className="text-xl font-bold">{name}</div>
     </div>

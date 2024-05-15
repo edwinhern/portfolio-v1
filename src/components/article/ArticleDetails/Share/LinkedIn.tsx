@@ -1,14 +1,15 @@
-import { Linkedin } from 'lucide-react';
 import { useCallback } from 'react';
+
+import { Linkedin } from 'lucide-react';
 
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
 
 interface ShareOnLinkedInProps {
-  title: string;
   link: string;
+  title: string;
 }
 
-export const ShareOnLinkedIn: React.FC<ShareOnLinkedInProps> = ({ title, link }) => {
+export const ShareOnLinkedIn: React.FC<ShareOnLinkedInProps> = ({ link, title }) => {
   const share = useCallback(() => {
     const shareUrl = ` https://www.linkedin.com/feed/?shareActive=true&text=${title} ${encodeURIComponent(link)}`;
     window.open(shareUrl, '_blank');

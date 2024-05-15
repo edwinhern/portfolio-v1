@@ -7,13 +7,13 @@ const LocationSection = () => {
     <Card className="cardAnimation col-span-full md:col-span-2">
       <div className="p-4">
         <Image
-          draggable={false}
-          src="/city/austin-sketch.png"
           alt="Austin Texas - yeehaw!"
           className="h-40 w-full justify-center rounded-t-lg object-cover md:rounded-lg lg:h-48"
-          width={420}
+          draggable={false}
           height={200}
           priority
+          src="/city/austin-sketch.png"
+          width={420}
         />
       </div>
       <CardHeader className="-mb-2 px-4">

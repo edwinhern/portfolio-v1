@@ -1,8 +1,7 @@
 'use client';
 
-import { create } from 'zustand';
-
 import { IArticle } from '@/sanity/types';
+import { create } from 'zustand';
 
 type IArticleDetailsStore = {
   article: IArticle | null;

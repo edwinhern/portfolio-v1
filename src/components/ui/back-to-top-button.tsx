@@ -1,7 +1,8 @@
 'use client';
 
-import { ArrowUp } from 'lucide-react';
 import { useEffect, useState } from 'react';
+
+import { ArrowUp } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 
@@ -13,7 +14,7 @@ function BackToTopButton() {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ behavior: 'smooth', top: 0 });
   };
 
   useEffect(() => {
@@ -29,7 +30,7 @@ function BackToTopButton() {
         }`}
         style={{ transition: 'opacity 0.5s ease-in-out' }}
       >
-        <Button size="icon" variant={'default'} onClick={scrollToTop} aria-label="Scroll to top">
+        <Button aria-label="Scroll to top" onClick={scrollToTop} size="icon" variant={'default'}>
           <ArrowUp />
         </Button>
       </div>

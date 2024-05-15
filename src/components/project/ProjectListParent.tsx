@@ -1,8 +1,9 @@
 'use client';
 
+import { IArticle } from '@/sanity/types';
+
 import FeaturedProject from '@/components/project/FeaturedProject';
 import ProjectGrid from '@/components/project/ProjectGrid';
-import { IArticle } from '@/sanity/types';
 
 const ProjectListParent = ({ projects }: { projects: IArticle[] }) => {
   if (!projects) {
@@ -15,13 +16,13 @@ const ProjectListParent = ({ projects }: { projects: IArticle[] }) => {
     <>
       {mainPost && (
         <FeaturedProject
-          key={mainPost._id}
-          title={mainPost.title}
+          author={mainPost.author}
           coverImage={mainPost.mainImage}
           date={mainPost.publishedAt}
           excerpt={mainPost.excerpt as string}
-          author={mainPost.author}
+          key={mainPost._id}
           slug={mainPost.slug}
+          title={mainPost.title}
         />
       )}
       {morePosts.length > 0 && <ProjectGrid projects={morePosts} />}
