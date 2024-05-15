@@ -11,9 +11,6 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
-    "test": "vitest run",
-    "test:dev": "vitest dev",
-    "test:cov": "vitest run --coverage",
     "release": "semantic-release",
     "prepare": "husky"
   },
