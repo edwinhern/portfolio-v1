@@ -1,3 +1,5 @@
+import type { PropsWithChildren } from 'react';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Dialog,
@@ -8,7 +10,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-interface DialogWrapperProps extends ChildProps {
+interface DialogWrapperProps extends PropsWithChildren {
   dialogDescription: string;
   dialogTitle: string;
 }

@@ -1,3 +1,5 @@
+import type { PropsWithChildren } from 'react';
+
 import dynamic from 'next/dynamic';
 
 import CarouselLoadingPlaceholder from '@/components/ui/Carousel/CarouselLoadingPlaceholder';
@@ -16,7 +18,7 @@ const responsiveData = {
   },
 };
 
-const CarouselComponent: React.FC<ChildProps> = ({ children }) => {
+const CarouselComponent: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="flex flex-col gap-4 md:hidden">
       <Carousel responsive={responsiveData} ssr swipeable={false}>
