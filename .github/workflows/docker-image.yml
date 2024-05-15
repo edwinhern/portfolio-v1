@@ -30,7 +30,14 @@ jobs:
       # Build and tag the production Docker image
       - name: Build the production Docker image
         run: |
-          docker build . --file Dockerfile --target runner --tag ghcr.io/${{ github.repository }}:${{ github.sha }}
+          docker build . \
+            --file Dockerfile \
+            --target runner \
+            --tag ghcr.io/${{ github.repository }}:${{ github.sha }} \
+            --build-arg NEXT_PUBLIC_VERCEL_URL=${{ secrets.NEXT_PUBLIC_VERCEL_URL }} \
+            --build-arg NEXT_PUBLIC_SANITY_PROJECT_ID=${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }} \
+            --build-arg NEXT_PUBLIC_SANITY_DATASET=${{ secrets.NEXT_PUBLIC_SANITY_DATASET }} \
+            --build-arg SANITY_API_READ_TOKEN=${{ secrets.SANITY_API_READ_TOKEN }}
           if [ "${{ github.ref }}" == "refs/heads/develop" ]; then
             docker tag ghcr.io/${{ github.repository }}:${{ github.sha }} ghcr.io/${{ github.repository }}:latest
           fi

@@ -7,6 +7,7 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET || 'default-dataset',
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'default-project-id',
+    NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL || 'default-vercel-url',
     SANITY_API_READ_TOKEN: process.env.SANITY_API_READ_TOKEN || 'default-read-token',
   },
   experimental: {
