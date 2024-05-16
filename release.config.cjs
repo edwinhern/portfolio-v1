@@ -13,7 +13,7 @@ module.exports = {
       '@semantic-release/git',
       {
         assets: ['CHANGELOG.md', 'package.json', 'package-lock.json'],
-        message: 'chore(release): :bookmark: bump version ${nextRelease.version}',
+        message: 'chore(release): :bookmark: bump version ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
       },
     ],
   ],
