@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/edwinhern/portfolio-v1/compare/v1.0.1...v1.0.2) (2024-05-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency cmdk to v1 ([#61](https://github.com/edwinhern/portfolio-v1/issues/61)) ([926ad94](https://github.com/edwinhern/portfolio-v1/commit/926ad940be70c82ad52c6ed3e92599fb689470f8))
+* **deps:** update dependency sanity-plugin-asset-source-unsplash to v3 ([#63](https://github.com/edwinhern/portfolio-v1/issues/63)) ([6941e12](https://github.com/edwinhern/portfolio-v1/commit/6941e121f494cbbaf35f67955321be12c6b61816))
+
 ## [1.0.1](https://github.com/edwinhern/portfolio-v1/compare/v1.0.0...v1.0.1) (2024-05-15)
 
 
