@@ -1,11 +1,14 @@
-import { createClient } from 'next-sanity';
-
 import { apiVersion, dataset, projectId, revalidateSecret } from '@/sanity/lib/api';
+import { createClient } from 'next-sanity';
 
 export const client = createClient({
   apiVersion,
   dataset,
-  projectId,
-  useCdn: revalidateSecret ? false : true,
   perspective: 'published',
+  projectId,
+  stega: {
+    enabled: true,
+    studioUrl: '/studio',
+  },
+  useCdn: revalidateSecret ? false : true,
 });
