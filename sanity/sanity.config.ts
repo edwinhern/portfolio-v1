@@ -1,11 +1,10 @@
+import { apiVersion, dataset, projectId } from '@/sanity/lib/api';
+import post from '@/sanity/schemas/post';
 import { codeInput } from '@sanity/code-input';
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash';
-
-import { apiVersion, dataset, projectId } from '@/sanity/lib/api';
-import post from '@/sanity/schemas/post';
 
 import { schema } from './schemas';
 
@@ -18,9 +17,7 @@ export const PREVIEW_BASE_URL = '/api/preview';
 
 export default defineConfig({
   basePath: '/admin',
-  projectId,
   dataset,
-  schema,
   plugins: [
     codeInput(),
     deskTool({
@@ -38,4 +35,6 @@ export default defineConfig({
     unsplashImageAsset(),
     visionTool({ defaultApiVersion: apiVersion }),
   ],
+  projectId,
+  schema,
 });
