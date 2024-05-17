@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/edwinhern/portfolio-v1/compare/v1.0.5...v1.0.6) (2024-05-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency next-sanity to v9.0.20 ([fcfffb5](https://github.com/edwinhern/portfolio-v1/commit/fcfffb5b1871af35b3b7c71c87d335ea9a0d18ed))
+
 ## [1.0.5](https://github.com/edwinhern/portfolio-v1/compare/v1.0.4...v1.0.5) (2024-05-16)
 
 
