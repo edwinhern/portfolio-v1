@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/edwinhern/portfolio-v1/compare/v1.0.10...v1.0.11) (2024-05-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @portabletext/react to v3.1.0 ([0ade1cf](https://github.com/edwinhern/portfolio-v1/commit/0ade1cf3e57cfc494392477827b696570617e3fd))
+
 ## [1.0.10](https://github.com/edwinhern/portfolio-v1/compare/v1.0.9...v1.0.10) (2024-05-25)
 
 
