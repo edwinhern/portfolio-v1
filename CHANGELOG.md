@@ -1,3 +1,10 @@
+## [1.0.19](https://github.com/edwinhern/portfolio-v1/compare/v1.0.18...v1.0.19) (2024-06-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency million to v3.1.11 ([58484ce](https://github.com/edwinhern/portfolio-v1/commit/58484ce09a5a8e974d8eddc9188a71a698188799))
+
 ## [1.0.18](https://github.com/edwinhern/portfolio-v1/compare/v1.0.17...v1.0.18) (2024-06-04)
 
 
