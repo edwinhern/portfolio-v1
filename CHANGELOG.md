@@ -1,3 +1,10 @@
+## [1.0.34](https://github.com/edwinhern/portfolio-v1/compare/v1.0.33...v1.0.34) (2024-06-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency zustand to v4.5.4 ([6fc1745](https://github.com/edwinhern/portfolio-v1/commit/6fc17451d2289c1e3942870cbb3b778b091c190e))
+
 ## [1.0.33](https://github.com/edwinhern/portfolio-v1/compare/v1.0.32...v1.0.33) (2024-06-26)
 
 
