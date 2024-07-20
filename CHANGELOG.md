@@ -1,3 +1,10 @@
+## [1.0.47](https://github.com/edwinhern/portfolio-v1/compare/v1.0.46...v1.0.47) (2024-07-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency rimraf to v6 ([#134](https://github.com/edwinhern/portfolio-v1/issues/134)) ([d7426c6](https://github.com/edwinhern/portfolio-v1/commit/d7426c6599fa4d0bb03c9f6747fb357c217c2fa6))
+
 ## [1.0.46](https://github.com/edwinhern/portfolio-v1/compare/v1.0.45...v1.0.46) (2024-07-19)
 
 
