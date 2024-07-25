@@ -33,7 +33,7 @@
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
     "dayjs": "^1.11.10",
-    "lucide-react": "^0.414.0",
+    "lucide-react": "^0.416.0",
     "million": "^3.0.6",
     "next": "^14.1.0",
     "next-sanity": "^9.0.0",
