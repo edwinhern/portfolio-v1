@@ -1,3 +1,10 @@
+## [1.0.61](https://github.com/edwinhern/portfolio-v1/compare/v1.0.60...v1.0.61) (2024-08-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lucide-react to ^0.426.0 ([afd93bb](https://github.com/edwinhern/portfolio-v1/commit/afd93bb615c20caa4420aabd94c71a806ee1d7b0))
+
 ## [1.0.60](https://github.com/edwinhern/portfolio-v1/compare/v1.0.59...v1.0.60) (2024-08-07)
 
 
