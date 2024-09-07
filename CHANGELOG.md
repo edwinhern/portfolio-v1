@@ -1,3 +1,10 @@
+## [1.0.72](https://github.com/edwinhern/portfolio-v1/compare/v1.0.71...v1.0.72) (2024-09-07)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies to v3.57.1 ([f80088d](https://github.com/edwinhern/portfolio-v1/commit/f80088de407a805e05eacd1d85e398537b79fb95))
+
 ## [1.0.71](https://github.com/edwinhern/portfolio-v1/compare/v1.0.70...v1.0.71) (2024-09-06)
 
 
