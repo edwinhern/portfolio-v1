@@ -58,7 +58,7 @@
     "@portabletext/types": "^2.0.8",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "github:semantic-release/git",
-    "@semantic-release/github": "^10.0.1",
+    "@semantic-release/github": "^11.0.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
