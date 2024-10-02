@@ -1,3 +1,10 @@
+## [1.0.84](https://github.com/edwinhern/portfolio-v1/compare/v1.0.83...v1.0.84) (2024-10-02)
+
+
+### Bug Fixes
+
+* **deps:** update react ([b85c5cd](https://github.com/edwinhern/portfolio-v1/commit/b85c5cd1fcf78f7bb25c3cc68802707d6a399da4))
+
 ## [1.0.83](https://github.com/edwinhern/portfolio-v1/compare/v1.0.82...v1.0.83) (2024-09-25)
 
 
