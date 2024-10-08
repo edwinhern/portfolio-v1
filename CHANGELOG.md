@@ -1,3 +1,10 @@
+## [1.0.88](https://github.com/edwinhern/portfolio-v1/compare/v1.0.87...v1.0.88) (2024-10-08)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies to v3.60.0 ([d8d7255](https://github.com/edwinhern/portfolio-v1/commit/d8d7255149afb10fd7cdedfed5be9c51985e5249))
+
 ## [1.0.87](https://github.com/edwinhern/portfolio-v1/compare/v1.0.86...v1.0.87) (2024-10-08)
 
 
