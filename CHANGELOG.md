@@ -1,3 +1,10 @@
+## [1.0.90](https://github.com/edwinhern/portfolio-v1/compare/v1.0.89...v1.0.90) (2024-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tailwind-merge to v2.5.4 ([a9b19fe](https://github.com/edwinhern/portfolio-v1/commit/a9b19fee01c4ee3406a665ed95c23c937074d8fc))
+
 ## [1.0.89](https://github.com/edwinhern/portfolio-v1/compare/v1.0.88...v1.0.89) (2024-10-09)
 
 
