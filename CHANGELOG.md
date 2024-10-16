@@ -1,3 +1,10 @@
+## [1.0.96](https://github.com/edwinhern/portfolio-v1/compare/v1.0.95...v1.0.96) (2024-10-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-syntax-highlighter to v15.6.1 ([4370e17](https://github.com/edwinhern/portfolio-v1/commit/4370e17c8e7fe8fba5d2d994f9e20c89834912f7))
+
 ## [1.0.95](https://github.com/edwinhern/portfolio-v1/compare/v1.0.94...v1.0.95) (2024-10-16)
 
 
